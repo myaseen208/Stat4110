@@ -1,0 +1,19 @@
+/* Globally justify all text */
+body {
+  text-align: justify;
+}
+
+/* Center the figure and its caption */
+figure {
+  display: block;
+  text-align: center;  /* Center the figure */
+  margin: 0 auto;      /* Center the figure block itself */
+}
+
+figcaption {
+  text-align: justify; /* Justify the caption text */
+  margin-top: 5px;     /* Adjust spacing between the figure and caption */
+  text-indent: -2em;   /* Negative indent for the first line */
+  margin-left: 2em;    /* Indent subsequent lines */
+}
+

@@ -1,0 +1,282 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Stat-4110: Statistical Methods for Process Development and Control",
+    "section": "",
+    "text": "Preface\nThis booklet provides the class notes for Stat-4110: Statistical Methods for Process Development and Control, based on Engineering Statistics by Montgomery, Runger, and Hubele (please refer to the textbook for complete and comprehensive details). The following topics are covered:\n\nThe Role of Statistics in Engineering\nData Summary and Presentation\nRandom Variables and Probability Distributions\nDecision Making for a Single Sample\nDecision Making for Two Samples\nBuilding Empirical Models\nStatistical Process Control\n\nMontgomery, D. C., Runger, G. C., & Hubele, N. F. (2014). Engineering statistics. Wiley.\n\n\n\n\n\n\n\nFigure 1: Spring 2025 Stat-4110 Syllabus",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "Ch01.html",
+    "href": "Ch01.html",
+    "title": "1  The Role of Statistics in Engineering",
+    "section": "",
+    "text": "1.1 The Engineering Method and Statistical Thinking",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Role of Statistics in Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "Ch01.html#the-engineering-method-and-statistical-thinking",
+    "href": "Ch01.html#the-engineering-method-and-statistical-thinking",
+    "title": "1  The Role of Statistics in Engineering",
+    "section": "",
+    "text": "Engineers solve problems of interest to society by the efficient application of scientific principles.\nThe engineering or scientific method is the approach to formulating and solving these problems.\n\n\n\n\n\n\n\nFigure 1.1: The engineering problem-solving method.\n\n\n\n\n1.1.1 Probability\n\n\n\n\n\n\nProbability\n\n\n\n\nUsed to quantify likelihood or chance\nUsed to represent risk or uncertainty in engineering applications\nCan be interpreted as our degree of belief or relative frequency\n\n\n\n\n\n1.1.2 Statistics\n\n\n\n\n\n\nStatistics\n\n\n\n\nDeals with the collection, presentation, analysis, and use of data:\n\nMake decisions\nSolve problems\nDesign products and processes\n\nStatistical techniques are useful for describing and understanding variability.\nBy variability, we mean successive observations of a system or phenomenon do not produce exactly the same result.\nStatistics gives us a framework for describing this variability and for learning about potential sources of variability.\n\n\n\n\n\n1.1.3 Statistical Reasoning\n\n\n\n\n\n\nStatistical Reasoning\n\n\n\n\nStatistics is the science of uncertainty & variability\nTurning Data into Information\n\nData → Information → Knowledge → Wisdom\n\n\n\n\n\n\n\n\nFigure 1.2: Big Data\n\n\n\n\nStatistics is the Art and Science of learning from Data.\n\n\n\n\n\n1.1.4 Definitions\n\n\n\n\n\n\nDefinitions\n\n\n\n\nPopulation\n\nSet of measurements of interest. Characteristics of the population (parameters) are typically of interest.\n\nSample\n\nSubset of measurements of interest. A characteristic of the sample (statistic) is used to infer population characteristics (parameters).\n\nParameter\n\nA characteristic of the population.\n\nStatistic\n\nA characteristic of the sample.\n\nDescriptive Statistics\n\nDescribing the important characteristics of a set of data.\n\nInferential Statistics\n\nUsing sample data to make inferences (or generalizations) about a population.\n\nStatistical Inference\n\nMaking a statement about the population (parameter) based on the sample (statistic).\n\n\n\n\n\n\n1.1.5 Example\n\n\n\n\n\n\nExample\n\n\n\nSuppose that an engineer is developing a rubber compound for use in O-rings. The O-rings are to be employed as seals in plasma etching tools used in the semiconductor industry, so their resistance to acids and other corrosive substances is an important characteristic. The engineer uses the standard rubber compound to produce eight O-rings in a development laboratory and measures the tensile strength of each specimen after immersion in a nitric acid solution at 30°C for 25 minutes [refer to the American Society for Testing and Materials (ASTM) Standard D 1414 and the associated standards for many interesting aspects of testing rubber O-rings]. The tensile strengths (in psi) of the eight O-rings are 1030, 1035, 1020, 1049, 1028, 1026, 1019, and 1010. As we should have anticipated, not all the O-ring specimens exhibit the same measurement of tensile strength.\n\n\n\n\n1.1.6 Random Variable\n\n\n\n\n\n\nRandom Variable\n\n\n\n\nSince tensile strength varies or exhibits variability, it is a random variable.\nA random variable, X, can be model by X = \\mu + \\epsilon  where \\mu is a constant and \\epsilon is a random disturbance, or “noise” term.\n\n\n\n\n\n1.1.7 Dot Diagram\n\n\n\n\n\n\nDot Diagram\n\n\n\n\nThe dot diagram is a very useful plot for displaying a small body of data - say up to about 20 observations.\nThis plot allows us to see easily two features of the data; the location, or the middle, and the scatter or variability.\n\n\n\n\n\n\n\nFigure 1.3: Dot diagram of the O-ring tensile strength data for the original rubber compound.\n\n\n\n\nThe dot diagram is also very useful for comparing sets of data.\n\n\n\n\n\n\n\nFigure 1.4: Dot diagram of O-ring tensile strength data for the original and modified rubber compounds.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Role of Statistics in Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "Ch01.html#collecting-engineering-data",
+    "href": "Ch01.html#collecting-engineering-data",
+    "title": "1  The Role of Statistics in Engineering",
+    "section": "1.2 Collecting Engineering Data",
+    "text": "1.2 Collecting Engineering Data\n\n\n\n\n\n\nCollecting Engineering Data\n\n\n\nThree basic methods for collecting data:\n\nA retrospective study using historical data\nAn observational study\nA designed experiment\n\n\n\n\n1.2.1 Retrospective Study\n\n\n\n\n\n\nRetrospective Study\n\n\n\nA retrospective study uses either all or a sample of the historical process data from some period of time. The objective of this study might be to determine the relationships among the two temperatures and the reflux rate on the acetone concentration in the output product stream. In most such studies, the engineer is interested in using the data to construct a model relating the variables of interest.\n\n\n\n\n1.2.2 Observational Study\n\n\n\n\n\n\nObservational Study\n\n\n\nAn observational study simply observes the process of population during a period of routine operation.\n\n\n\n\n1.2.3 Designed Experiments\n\n\n\n\n\n\nDesigned Experiments\n\n\n\nThe third way that engineering data are collected is with a designed experiment. In a designed experiment, the engineer makes deliberate or purposeful changes in controllable variables (called factors) of the system, observes the resulting system output, and then makes a decision or an inference about which variables are responsible for the changes that he or she observes in the output performance.\n\n\n\n\n1.2.4 Random Samples\n\n\n\n\n\n\nRandom Samples\n\n\n\n\nAlmost all statistical analysis is based on the idea of using a sample of data that has been selected from some population.\nThe objective is to use the sample data to make decisions or learn something about the population.\nOnly random samples are likely to be useful in statistics, as they give us the best chance of obtaining a sample that is representative of the population.\n\n\n\n\n\n\n\n\n\nSimple Random Sample\n\n\n\n\nA simple random sample of size n is a sample that has been selected from a population in such a way that each possible sample of size n has an equally likely chance of being selected.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Role of Statistics in Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "Ch01.html#observing-processes-over-time",
+    "href": "Ch01.html#observing-processes-over-time",
+    "title": "1  The Role of Statistics in Engineering",
+    "section": "1.3 Observing Processes over Time",
+    "text": "1.3 Observing Processes over Time\n\n\n\n\n\n\nObserving Processes over Time\n\n\n\n\nWhenever data are collected over time it is important to plot the data over time. Phenomena that might affect the system or process often become more visible in a time-oriented plot and the concept of stability can be better judged.\n\n\n\n\n\n\n\nFigure 1.5: A dot diagram illustrates variation but does not identify the problem.\n\n\n\n\n\n\n\n\n\nFigure 1.6: A time series plot of acetone concentration provides more information than the dot diagram.\n\n\n\n\n\n\n\n\n\nFigure 1.7: A control chart for the chemical process concentration data.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Role of Statistics in Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "Ch01.html#r-software",
+    "href": "Ch01.html#r-software",
+    "title": "1  The Role of Statistics in Engineering",
+    "section": "1.4 R Software",
+    "text": "1.4 R Software\n\n\n\n\n\n\nDefinition\n\n\n\nR is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. R provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of R can be obtained from https://cran.r-project.org/bin/.\n\n\n\n1.4.1 RStudio\nRStudio is a powerful integrated development environment (IDE) for R, and it can be downloaded from https://www.rstudio.com/products/rstudio/download/.\n\n\n1.4.2 Example Code (Minimal)\n\nCh01.RCh01.qmd\n\n\n\n2 + 2\n5 - 2\n5 * 2\n6/2\n\n\n\n\n---\ntitle: \"Statistics and the Scientific Method\"\nformat:\n  html\ntoc: true\nnumber-sections: true\n---\n\n# Introduction\n\n```{r}\n#| echo: true\n2 + 2\n5 - 2\n5 * 2\n6/2 \n```\n\n\n\n\n\n\n1.4.3 An Introduction to R\n\n\n\n\n\n\n\nFigure 1.8: An Introduction to R\n\n\n\n\n\n1.4.4 R Short Reference Card\n\n\n\n\n\n\n\nFigure 1.9: R Short Reference Card\n\n\n\n\n\n1.4.5 2009 New York Times Article on R\n\n\n\n\n\n\n\nFigure 1.10: 2009 New York Times Article on R\n\n\n\n\n\n1.4.6 2015 Nature Article on R\n\n\n\n\n\n\n\nFigure 1.11: 2015 Nature Article on R",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>The Role of Statistics in Engineering</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html",
+    "href": "Ch02.html",
+    "title": "2  Data Summary and Presentation",
+    "section": "",
+    "text": "2.1 Data Summary and Display",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#data-summary-and-display",
+    "href": "Ch02.html#data-summary-and-display",
+    "title": "2  Data Summary and Presentation",
+    "section": "",
+    "text": "2.1.1 Mean\n\n2.1.1.1 Sample Mean\n\n\n\n\n\n\nSample Mean\n\n\n\nIf the n observations in a sample are denoted by X_{1},X_{2},\\ldots,X_{n}, the sample mean is \\begin{aligned}\n\\overline{X} & = \\frac{X_{1} + X_{2} + \\cdots + X_{n}}{n} \\\\\n\\overline{X} & = \\frac{\\sum_{i=1}^{n} X_{i}}{n}\n\\end{aligned}\n\n\n\n\n2.1.1.2 Population Mean\n\n\n\n\n\n\nPopulation Mean\n\n\n\nWhen there is a finite number of observations (say, N) in the population, the population mean is \\begin{aligned}\n\\mu & = \\frac{\\sum_{i=1}^{N} X_{i}}{N}\n\\end{aligned}\n\n\nThe sample mean, \\overline{X}, is a reasonable estimate of the population mean, \\mu.\n\n\n2.1.1.3 Example\n\n\n\n\n\n\nExample\n\n\n\nConsider the O-ring tensile strength experiment described in Chapter 1. The data from the modified rubber compound (1048, 1059, 1047, 1066, 1040, 1070, 1037, 1073) are shown in the dot diagram (Figure 2.1 and Figure 2.2). The sample mean strength (psi) for the eight observations on strength is \\begin{aligned}\n\\overline{X} & = \\frac{\\sum_{i=1}^{n} X_{i}}{n} \\\\\n\\overline{X} & = \\frac{1037 + 1047 + \\cdots + 1040}{8} \\\\\n\\overline{X} & = \\frac{8440}{8} = 1055  \\text{ psi}\n\\end{aligned}\nA physical interpretation of the sample mean as a measure of location is shown in Figure 2.1 and Figure 2.2. Note that the sample mean \\overline{X} = 1055 can be thought of as a “balance point.” That is, if each observation represents 1 pound of mass placed at the point on the x-axis, a fulcrum located at \\overline{X} would exactly balance this system of weights.\n\n\n\n\n\n\nFigure 2.1: Dot diagram of O-ring tensile strength. The sample mean is shown as a balance point for a system of weights.\n\n\n\n\nR OutputR CodeDownload Data\n\n\n\n\n[1] 1055\n\n\n\n\n\nlibrary(fastverse)\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(janitor)\nlibrary(kableExtra)\n\n\nExmp2.2 &lt;- \n  data.table(\n    TS = c(1048, 1059, 1047, 1066, 1040, 1070, 1037, 1073)\n    )\n\nExmp2.2 %&gt;% \n  pull(TS) %&gt;% \n  fmean(x = .)\n\n\n\n\n\n\n\n\nR OutputR Code\n\n\n\n\n\n\n\n\n\n\nFigure 2.2: Dot diagram of O-ring tensile strength. The sample mean is shown as a balance point for a system of weights.\n\n\n\n\n\n\n\n\n# Dot diagram of O-ring tensile strength. The sample mean is shown as a balance point for a system of weights.\nggplot(data = Exmp2.2, mapping = aes(x = TS)) +\n  geom_dotplot(binwidth = 1, stackdir = \"up\", dotsize = 1) +\n  geom_vline(aes(xintercept = fmean(TS)), color = \"red\", linetype = \"dashed\", linewidth = 1) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  labs(\n    x = \"Tensile Strength\"\n  , y = NULL\n  ) +\n  theme_classic() +\n  theme(\n    axis.ticks.y = element_blank()\n  , axis.text.y = element_blank() \n  )\n\n\n\n\n\n\n\n\n\n2.1.2 Variance and Standard Deviation\n\n2.1.2.1 Sample Variance and Sample Standard Deviation\n\n\n\n\n\n\nSample Variance and Sample Standard Deviation\n\n\n\nIf the n observations in a sample are denoted by X_{1},X_{2},\\ldots,X_{n}, then the sample variance is\n\\begin{aligned}\nS^2 & = \\frac{\\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)^{2}}{n-1}\n\\end{aligned}\nThe sample standard deviation, S, is the positive square root of the sample variance.\n\n\nThe units of measurement for the sample variance are the square of the original units of the variable. Thus, if X is measured in psi, the units for the sample variance are (\\text{psi})^2. The standard deviation has the desirable property of measuring variability in the original units of the variable of interest, X (psi).\n\n\n2.1.2.2 Example\n\n\n\n\n\n\nExample\n\n\n\nConsider the O-ring tensile strength experiment described in Chapter 1. The data from the modified rubber compound (1048, 1059, 1047, 1066, 1040, 1070, 1037, 1073) are shown in the dot diagram (Figure 2.3). The numerator of S^2 is (See Table 2.1) \\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)^{2} = 1348\nso the sample variance is\n\\begin{aligned}\nS^2 & = \\frac{\\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)^{2}}{n-1}\n= \\frac{1348}{8-1} = 192.57 \\text{ psi}^2 \\end{aligned}\nand the sample standard deviation is\n\\begin{aligned}\nS & = \\sqrt{192.57} = 13.9 \\text{ psi} \\end{aligned}\n\n\n\nTable 2.1: Calculation of Terms for the Sample Variance and Sample Standard Deviation\n\n\n\n\n\n\n\n\n\n\n\ni\nX_i\nX_{i}-\\overline{X}\n\\left(X_{i}-\\overline{X}\\right)^{2}\n\n\n\n\n1\n1,048\n-7\n49\n\n\n2\n1,059\n4\n16\n\n\n3\n1,047\n-8\n64\n\n\n4\n1,066\n11\n121\n\n\n5\n1,040\n-15\n225\n\n\n6\n1,070\n15\n225\n\n\n7\n1,037\n-18\n324\n\n\n8\n1,073\n18\n324\n\n\nTotal\n8,440\n0\n1,348\n\n\n\n\n\n\nAlso note that \\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)^{2}=\\sum_{i=1}^{n}X_{i}^{2}-\\frac{\\left(\\sum_{i=1}^{n}X_{i}\\right)^{2}}{n}.\n\nR OutputR CodeDownload Data\n\n\n\n\n[1] 192.5714\n\n\n[1] 13.87701\n\n\n\n\n\nExmp2.2 %&gt;% \n  pull(TS) %&gt;% \n  fvar(x = .)\n\nExmp2.2 %&gt;% \n  pull(TS) %&gt;% \n  fsd(x = .)\n\n\n\n\n\n\n\n\nR OutputR Code\n\n\n\n\n\n\nTable 2.2: Variance Calculations\n\n\n\n\n\n\nTS\nDev\nDev2\n\n\n\n\n1048\n-7\n49\n\n\n1059\n4\n16\n\n\n1047\n-8\n64\n\n\n1066\n11\n121\n\n\n1040\n-15\n225\n\n\n1070\n15\n225\n\n\n1037\n-18\n324\n\n\n1073\n18\n324\n\n\nTotal\n0\n1348\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2.3\n\n\nExmp2.2 %&gt;% \n  fmutate(\n    Dev  = TS - fmean(TS)\n  , Dev2 = (TS - fmean(TS))^2\n    ) %&gt;% \n  adorn_totals() %&gt;% \n  kbl()\n\n\n\n\n\n\n\n\n\n\n2.1.2.3 How Does the Sample Variance Measure Variability?\n\n\n\n\n\n\nHow Does the Sample Variance Measure Variability?\n\n\n\nTo see how the sample variance measures dispersion or variability, refer to Figure 2.3, which shows the deviations X_{i}-\\overline{X} for the O-ring tensile strength data. The greater the amount of variability in the O-ring tensile strength data, the larger in absolute magnitude some of the deviations X_{i}-\\overline{X} will be. Because the deviations X_{i}-\\overline{X} always sum to zero, we must use a measure of variability that changes the negative deviations to nonnegative quantities. Squaring the deviations is the approach used in the sample variance. Consequently, if S^2 is small, there is relatively little variability in the data, but if S^2 is large, the variability is relatively large.\n\n\n\n\n\n\nFigure 2.3: How the sample variance measures variability through the deviations X_{i}-\\overline{X}.\n\n\n\n\n\n\n\n2.1.2.4 Population Variance\n\n\n\n\n\n\nPopulation Variance\n\n\n\nWhen the population is finite and consists of N values, we may define the population variance as\n\\begin{aligned}\n\\sigma^2 & = \\frac{\\sum_{i=1}^{N}\\left(X_{i}-\\mu\\right)^{2}}{N}\n\\end{aligned}\n\n\nThe sample variance, S^2, is a reasonable estimate of the population variance, \\sigma^2.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#stem-and-leaf-diagram",
+    "href": "Ch02.html#stem-and-leaf-diagram",
+    "title": "2  Data Summary and Presentation",
+    "section": "2.2 Stem-and-Leaf Diagram",
+    "text": "2.2 Stem-and-Leaf Diagram\n\n\n\n\n\n\nStem-and-Leaf Diagram\n\n\n\nA stem-and-leaf diagram is a good way to obtain an informative visual display of a data set X_{1},X_{2},\\ldots,X_{n}, where each number X_{i} consists of at least two digits. To construct a stem-and-leaf diagram, use the following steps:\n\n\n\n\n\n\nSteps for Constructing a Stem-and-Leaf Diagram\n\n\n\n\nDivide each number X_{i} into two parts: a stem, consisting of one or more of the leading digits, and a leaf, consisting of the remaining digit.\nList the stem values in a vertical column.\nRecord the leaf for each observation beside its stem.\nWrite the units for stems and leaves on the display.\n\n\n\n\n\n\n2.2.1 Example\n\n\n\n\n\n\nExample\n\n\n\nTo illustrate the construction of a stem-and-leaf diagram, consider the alloy compressive strength data in Table 2.4.\n\n\n\nTable 2.4: Compressive Strength of 80 Aluminum-Lithium Alloy Specimens\n\n\n\n\n\n105\n221\n183\n186\n121\n181\n180\n143\n\n\n97\n154\n153\n174\n120\n168\n167\n141\n\n\n245\n228\n174\n199\n181\n158\n176\n110\n\n\n163\n131\n154\n115\n160\n208\n158\n133\n\n\n207\n180\n190\n193\n194\n133\n156\n123\n\n\n134\n178\n76\n167\n184\n135\n229\n146\n\n\n218\n157\n101\n171\n165\n172\n158\n169\n\n\n199\n151\n142\n163\n145\n171\n148\n158\n\n\n160\n175\n149\n87\n160\n237\n150\n135\n\n\n196\n201\n200\n176\n150\n170\n118\n149\n\n\n\n\n\n\nWe will select as stem values the numbers 7, 8, 9, \\ldots, 24. The resulting stem-and-leaf diagram is presented in the following figure.\n\nR OutputR CodeDownload Data\n\n\n\n\n\nTable 2.5: Stem-and-leaf diagram for the compressive strength data\n\n\n\n\n  The decimal point is 1 digit(s) to the right of the |\n\n   7 | 6\n   8 | 7\n   9 | 7\n  10 | 15\n  11 | 058\n  12 | 013\n  13 | 133455\n  14 | 12356899\n  15 | 001344678888\n  16 | 0003357789\n  17 | 0112445668\n  18 | 0011346\n  19 | 034699\n  20 | 0178\n  21 | 8\n  22 | 189\n  23 | 7\n  24 | 5\n\n\n\n\n\n\n\n\n\nTable 2.6\n\n\nExmp2.4 &lt;- fread(\"./data/Exmp2.4.csv\")\nExmp2.4 %&gt;% \n  pull(CS) %&gt;% \n  stem(x = ., scale = 2, width = 80)\n\n\n\n\n\n\n\n\n\nPractical interpretation: Inspection of this display immediately reveals that most of the compressive strengths lie between 110 and 200 psi and that a central value is somewhere between 150 and 160 psi. Furthermore, the strengths are distributed approximately symmetrically about the central value. The stem-and-leaf diagram enables us to determine quickly some important features of the data that were not immediately obvious in the original display in the table.\n\nR OutputR Code\n\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   144.5   161.5   162.7   181.0   245.0 \n\n\n\n\n\nExmp2.4 %&gt;% \n  pull(CS) %&gt;% \n  summary()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#histograms",
+    "href": "Ch02.html#histograms",
+    "title": "2  Data Summary and Presentation",
+    "section": "2.3 Histograms",
+    "text": "2.3 Histograms\n\n2.3.1 Histogram\n\n\n\n\n\n\nHistogram\n\n\n\nA histogram is a graphical representation of the distribution of a dataset, used to summarize and visualize the frequency or relative frequency of data within specified intervals, called bins. Each bin represents a range of values, and the height of the bar corresponding to a bin reflects the number of data points (or proportion of data points) that fall within that range. Histograms are particularly useful for understanding the shape, central tendency, spread, and outliers in a dataset, especially for continuous or large datasets.\n\n\n\n\n2.3.2 Example\n\n\n\n\n\n\nGold Ball Distance\n\n\n\nThe United States Golf Association tests golf balls to ensure that they conform to the rules of golf. Balls are tested for weight, diameter, roundness, and conformance to an overall distance standard. The overall distance test is conducted by hitting balls with a driver swung by a mechanical device nicknamed Iron Byron, after the legendary great player Byron Nelson, whose swing the machine is said to emulate.\n\n\n\nTable 2.7: Golf Ball Distance Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n291.5\n274.4\n290.2\n276.4\n272.0\n268.7\n281.6\n281.6\n276.3\n285.9\n\n\n269.6\n266.6\n283.6\n269.6\n277.8\n287.8\n267.6\n292.6\n273.4\n284.4\n\n\n270.7\n274.0\n285.2\n275.5\n272.1\n261.3\n274.0\n279.3\n281.0\n293.1\n\n\n277.5\n278.0\n272.5\n271.7\n280.8\n265.6\n260.1\n272.5\n281.3\n263.0\n\n\n279.0\n267.3\n283.5\n271.2\n268.5\n277.1\n266.2\n266.4\n271.5\n280.3\n\n\n267.8\n272.1\n269.7\n278.5\n277.3\n280.5\n270.8\n267.7\n255.1\n276.4\n\n\n283.7\n281.7\n282.2\n274.1\n264.5\n281.0\n273.2\n274.4\n281.6\n273.7\n\n\n271.0\n271.5\n289.7\n271.1\n256.9\n274.5\n286.2\n273.9\n268.5\n262.6\n\n\n261.9\n258.9\n293.2\n267.1\n255.0\n269.7\n281.9\n269.6\n279.8\n269.9\n\n\n282.6\n270.0\n265.2\n277.7\n275.5\n272.2\n270.0\n271.0\n284.3\n268.4\n\n\n\n\n\n\nTable 2.7 gives the distances achieved (in yards) by hitting 100 golf balls of a particular brand in the overall distance test. Because the data set contains 100 observations and \\sqrt{100} = 10, we suspect that about 10 bins will provide a satisfactory histogram. The histogram for the golf ball distance data is shown in Figure 2.4 (a). Notice that the midpoint of the first bin is 250 yards and that the histogram only has 9 bins that contain a nonzero frequency. A histogram, like a stem-and-leaf plot, gives a visual impression of the shape of the distribution of the measurements, as well as information about the inherent variability in the data. Note the reasonably symmetric or bell-shaped distribution of the golf ball distance data.\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Histogram with 10 bins for the golf ball distance data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Histogram with 16 bins for the golf ball distance data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) A cumulative frequency plot of the golf ball distance data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(d) A relative frequency plot of the golf ball distance data\n\n\n\n\n\n\n\nFigure 2.4: Histogram for the golf ball distance data\n\n\n\n\n\n\nExmp2.6 &lt;- fread(\"./data/Exmp2.6.csv\")\n\n# Histogram with 10 bins for the golf ball distance data\nggplot(data = Exmp2.6, mapping = aes(x = Distance)) +\n  geom_histogram(bins = 9) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(expand = c(0, 0), limits = c(0, NA), breaks = pretty_breaks(n = 8)) +\n  labs(\n    x = \"Distance\"\n  , y = \"Frequency\"\n  ) +\n  theme_classic()\n\n# Histogram with 16 bins for the golf ball distance data\nggplot(data = Exmp2.6, mapping = aes(x = Distance)) +\n  geom_histogram(bins = 16) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(expand = c(0, 0), limits = c(0, NA), breaks = pretty_breaks(n = 8)) +\n  labs(\n    x = \"Distance\"\n  , y = \"Frequency\"\n  ) +\n  theme_classic()\n\n# A cumulative frequency plot of the golf ball distance data\nggplot(data = Exmp2.6, mapping = aes(x = Distance)) +\n  geom_histogram(mapping = aes(y = after_stat(count / sum(count))), bins = 9) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(expand = c(0, 0), limits = c(0, NA), breaks = pretty_breaks(n = 8)) +\n  labs(\n    x = \"Distance\"\n  , y = \"Frequency\"\n  ) +\n  theme_classic()\n\n# A relative frequency plot of the golf ball distance data\nggplot(data = Exmp2.6, mapping = aes(x = Distance)) +\n  geom_histogram(mapping = aes(y = after_stat(cumsum(count))), bins = 10) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(expand = c(0, 0), limits = c(0, NA), breaks = pretty_breaks(n = 8)) +\n  labs(\n    x = \"Distance\"\n  , y = \"Frequency\"\n  ) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n\n2.3.3 Pareto Chart\n\n\n\n\n\n\nPareto Chart\n\n\n\nAn important variation of the histogram is the Pareto chart. This chart is widely used in quality and process improvement studies where the data usually represent different types of defects, failure modes, or other categories of interest to the analyst. The categories are ordered so that the category with the largest number of frequencies is on the left, followed by the category with the second largest number of frequencies, and so forth.\n\n\n\n\n2.3.4 Example\n\n\n\n\n\n\nExample\n\n\n\nTable 2.8 presents data on aircraft accident rates taken from an article in The Wall Street Journal (“Jet’s Troubled History Raises Issues for the FAA and the Manufacturer,” 19 September 2000). The table presents the total number of accidents involving hull losses between 1959 and 1999 for 22 types of aircraft and the hull loss rate expressed as the number of hull losses per million departures. Figure 2-11 shows a Pareto chart of the hull losses per million departures. Clearly, the first three aircraft types account for a large percentage of the incidents on a per-million-departures basis. An interesting fact about the first three aircraft types is that the 707/720 and the DC-8 were mid-1950s’ designs and are not in regular\n\n\n\nTable 2.8: Aircraft Accident Data\n\n\n\n\n\n\n\n\n\n\nAircraft Type\nActual Number of Hull Losses\nHull Losses/Million Departures\n\n\n\n\nMD-11\n5\n6.54\n\n\n707/720\n115\n6.46\n\n\nDC-8\n71\n5.84\n\n\nF-28\n32\n3.94\n\n\nBAC 1-11\n22\n2.64\n\n\nDC-10\n20\n2.57\n\n\n747-Early\n21\n1.9\n\n\nA310\n4\n1.4\n\n\nA300-600\n3\n1.34\n\n\nDC-9\n75\n1.29\n\n\nA300-Early\n7\n1.29\n\n\n737-1 & 2\n62\n1.23\n\n\n727\n70\n0.97\n\n\nA310/319/321\n7\n0.96\n\n\nF100\n3\n0.8\n\n\nL-1011\n4\n0.77\n\n\nBae 146\n3\n0.59\n\n\n747-400\n1\n0.49\n\n\n757\n4\n0.46\n\n\nMD-80/90\n10\n0.43\n\n\n767\n3\n0.41\n\n\n737-3,4 & 5\n12\n0.39\n\n\n\n\n\n\npassenger service today in most of the world, whereas the MD-11 was introduced into passenger service in 1990. Between 1990 and 1999, five of the global fleet of 198 MD-11s were destroyed in crashes, leading to the high accident rate (an excellent discussion of potential root causes of these accidents is in The Wall Street Journal article). The purpose of most Pareto charts is to help the analyst separate the sources of defects or incidents into the vital few and the relatively “insignificant many.” There are many varia- tions of the Pareto chart; for some examples, see Montgomery (2009a).\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\n\n\n\n\nFigure 2.5: Pareto chart for the aircraft accident data\n\n\n\n\n\n\n\n\nExmp2.8 &lt;- fread(\"./data/Exmp2.8.csv\")\n\nggplot(data = Exmp2.8, mapping = aes(x = fct_reorder(Type, desc(HLMD)), y = HLMD)) +\n  geom_col() +\n  scale_y_continuous(expand = c(0, 0), limits = c(0, NA), breaks = pretty_breaks(n = 8)) +\n  scale_x_discrete(guide = guide_axis(n.dodge = 2)) +\n  labs(\n    x = \"Aircraft type\"\n  , y = \"Hull losses/million departures\"\n  ) +\n  theme_classic()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#box-plot",
+    "href": "Ch02.html#box-plot",
+    "title": "2  Data Summary and Presentation",
+    "section": "2.4 Box Plot",
+    "text": "2.4 Box Plot\n\n\n\n\n\n\nBox Plot\n\n\n\nBox plot or Box Whisker plot can be used to pick out pertinent aspects of data such as\n\nMeasure of Central Tendency\nMeasure of Variability\nMeasure of Symmetry\nOutliers\nGroup Comparisons\n\n\n Box Whisker Plot\n\n\n\\begin{align*}\n\\text{Lower Inner Fence} & =Q_{1}-1.5\\times\\text{IQR}\\\\\n\\text{Upper Inner Fence} & =Q_{3}+1.5\\times\\text{IQR}\\\\\n\\text{Lower Outer Fence} & =Q_{1}-3\\times\\text{IQR}\\\\\n\\text{Upper Outer Fence} & =Q_{3}+3\\times\\text{IQR}\n\\end{align*}\n\n\nMild Outlier: Beyond inner fence (but inside outer fence)\nExtreme Outlier: Beyond outer fence\nNote that the lines from the boxes extend to the lower and upper adjacent values (the smallest and largest values that are not outliers).\n\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\n\n\n\n\nFigure 2.6: Box plot for compressive strength data\n\n\n\n\n\n\n\n\nExmp2.4 &lt;- fread(\"./data/Exmp2.4.csv\")\n\nggplot(data = Exmp2.4, mapping = aes(x = CS)) +\n  geom_boxplot(width = 0.3) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(limits = c(-1, 1)) +\n  labs(\n    x = \"Strength\"\n  , y = NULL\n  ) +\n  theme_classic() +\n  theme(\n    axis.ticks.y = element_blank()\n  , axis.text.y = element_blank() \n  )\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.7: Comparative box plots of a quality index at three plants.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#time-series-plots",
+    "href": "Ch02.html#time-series-plots",
+    "title": "2  Data Summary and Presentation",
+    "section": "2.5 Time Series Plots",
+    "text": "2.5 Time Series Plots\n\n\n\n\n\n\nTime Series Plots\n\n\n\n\nA time series or time sequence is a data set in which the observations are recorded in the order in which they occur.\nA time series plot is a graph in which the vertical axis denotes the observed value of the variable (say x) and the horizontal axis denotes the time (which could be minutes, days, years, etc.).\nWhen measurements are plotted as a time series, we often see\n\ntrends,\ncycles, or\nother broad features of the data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Company sales by year\n\n\n\n\n\n\n\n\n\n\n\n(b) Company sales by quarter\n\n\n\n\n\n\n\nFigure 2.8: Company sales\n\n\n\n\n\n\n\n\n\nFigure 2.9: A digidot plot of the compressive strength data.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch02.html#multivariate-data",
+    "href": "Ch02.html#multivariate-data",
+    "title": "2  Data Summary and Presentation",
+    "section": "2.6 Multivariate Data",
+    "text": "2.6 Multivariate Data\n\n\n\n\n\n\nMultivariate Data\n\n\n\n\nThe dot diagram, stem-and-leaf diagram, histogram, and box plot are descriptive displays for univariate data; that is, they convey descriptive information about a single variable.\nMany engineering problems involve collecting and analyzing multivariate data, or data on several different variables.\nIn engineering studies involving multivariate data, often the objective is to determine the relationships among the variables or to build an empirical model.\n\n\n\n\n2.6.1 Example\n\n\n\n\n\n\nWire Bond Data\n\n\n\n\n\n\nTable 2.9: Wire Bond Data\n\n\n\n\n\nObs No\nPull Strength (Y)\nWire Length (X1)\nDie Height (X2)\n\n\n\n\n1\n9.95\n2\n50\n\n\n2\n24.45\n8\n110\n\n\n3\n31.75\n11\n120\n\n\n4\n35.00\n10\n550\n\n\n5\n25.02\n8\n295\n\n\n6\n16.86\n4\n200\n\n\n7\n14.38\n2\n375\n\n\n8\n9.60\n2\n52\n\n\n9\n24.35\n9\n100\n\n\n10\n27.50\n8\n300\n\n\n11\n17.08\n4\n412\n\n\n12\n37.00\n11\n400\n\n\n13\n41.95\n12\n500\n\n\n14\n11.66\n2\n360\n\n\n15\n21.65\n4\n205\n\n\n16\n17.89\n4\n400\n\n\n17\n69.00\n20\n600\n\n\n18\n10.30\n1\n585\n\n\n19\n34.93\n10\n540\n\n\n20\n46.59\n15\n250\n\n\n21\n44.88\n15\n290\n\n\n22\n54.12\n16\n510\n\n\n23\n56.63\n17\n590\n\n\n24\n22.13\n6\n100\n\n\n25\n21.15\n5\n400\n\n\n\n\n\n\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Scatter plot for Pull strength versus length\n\n\n\n\n\n\n\n\n\n\n\n(b) Scatter plot for Pull strength versus die height\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) Scatter and box plots for Pull strength versus length\n\n\n\n\n\n\n\n\n\n\n\n(d) Scatter and box plots for Pull strength versus die height\n\n\n\n\n\n\n\nFigure 2.10: Scatter diagrams and box plots for the wire bond pull strength data\n\n\n\n\n\n\nTable2.9 &lt;- fread(\"./data/Table2.9.csv\")\n\nggplot(data = Table2.9, mapping = aes(x = X1, y = Y)) +\n  geom_point() +\n  labs(\n    x = \"Length\"\n  , y = \"Strength\"\n  ) +\n  theme_classic()\n\nggplot(data = Table2.9, mapping = aes(x = X2, y = Y)) +\n  geom_point() +\n  labs(\n    x = \"Die height\"\n  , y = \"Strength\"\n  ) +\n  theme_classic()\n\nlibrary(car)\nscatterplot(\n      formula = Y ~ X1\n    , data    = Table2.9\n    , smooth  = FALSE\n    , regLine = FALSE\n    , xlab    = \"Length\"\n    , ylab    = \"Strength\"\n    )\n\nscatterplot(\n      formula = Y ~ X2\n    , data    = Table2.9\n    , smooth  = FALSE\n    , regLine = FALSE\n    , xlab    = \"Die height\"\n    , ylab    = \"Strength\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n2.6.2 Sample Correlation Coefficient\n\n\n\n\n\n\nSample Correlation Coefficient\n\n\n\nGiven n pairs of data \\left(X_{1},Y_{1}\\right),\\left(X_{2},Y_{2}\\right),\\ldots,\\left(X_{n},Y_{n}\\right), the sample correlation coefficient r is defined by\n\nr=\\frac{\\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)\\left(Y_{i}-\\overline{Y}\\right)}{\\sqrt{\\sum_{i=1}^{n}\\left(X_{i}-\\overline{X}\\right)^{2}\\sum_{i=1}^{n}\\left(Y_{i}-\\overline{Y}\\right)^{2}}}\n\nwhere -1\\leq r\\leq+1.\n\n\n\n\n\n\n\n\n\n\n\n(a) r is near +1\n\n\n\n\n\n\n\n\n\n\n\n(b) r is near -1\n\n\n\n\n\n\n\n\n\n\n\n\n\n(c) r is near 0, Y and X are unrelated\n\n\n\n\n\n\n\n\n\n\n\n(d) r is near 0, Y and X are nonlinearly related\n\n\n\n\n\n\n\nFigure 2.11: Scatter diagrams for different values of the sample correlation coefficient r.\n\n\n\n\n\n\n\n2.6.3 Example\n\n\n\n\n\n\nData on Shampoo\n\n\n\n\n\n\nTable 2.10: Data on Shampoo\n\n\n\n\n\nFoam\nScent\nColor\nResidue\nRegion\nQuality\n\n\n\n\n6.3\n5.3\n4.8\n3.1\n1\n91\n\n\n4.4\n4.9\n3.5\n3.9\n1\n87\n\n\n3.9\n5.3\n4.8\n4.7\n1\n82\n\n\n5.1\n4.2\n3.1\n3.6\n1\n83\n\n\n5.6\n5.1\n5.5\n5.1\n1\n83\n\n\n4.6\n4.7\n5.1\n4.1\n1\n84\n\n\n4.8\n4.8\n4.8\n3.3\n1\n90\n\n\n6.5\n4.5\n4.3\n5.2\n1\n84\n\n\n8.7\n4.3\n3.9\n2.9\n1\n97\n\n\n8.3\n3.9\n4.7\n3.9\n1\n93\n\n\n5.1\n4.3\n4.5\n3.6\n1\n82\n\n\n3.3\n5.4\n4.3\n3.6\n1\n84\n\n\n5.9\n5.7\n7.2\n4.1\n2\n87\n\n\n7.7\n6.6\n6.7\n5.6\n2\n80\n\n\n7.1\n4.4\n5.8\n4.1\n2\n84\n\n\n5.5\n5.6\n5.6\n4.4\n2\n84\n\n\n6.3\n5.4\n4.8\n4.6\n2\n82\n\n\n4.3\n5.5\n5.5\n4.1\n2\n79\n\n\n4.6\n4.1\n4.3\n3.1\n2\n81\n\n\n3.4\n5.0\n3.4\n3.4\n2\n83\n\n\n6.4\n5.4\n6.6\n4.8\n2\n81\n\n\n5.5\n5.3\n5.3\n3.8\n2\n84\n\n\n4.7\n4.1\n5.0\n3.7\n2\n83\n\n\n4.1\n4.0\n4.1\n4.0\n2\n80\n\n\n\n\n\n\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\nTable 2.11: Correlation Matrix\n\n\n\n\n\n\n\nFoam\nScent\nColor\nResidue\nRegion\nQuality\n\n\n\n\nFoam\n1.0000000\n0.0021934\n0.3284925\n0.1931525\n-0.0323318\n0.5122369\n\n\nScent\n0.0021934\n1.0000000\n0.5987719\n0.4995952\n0.2782582\n-0.2516592\n\n\nColor\n0.3284925\n0.5987719\n1.0000000\n0.5241356\n0.4577615\n-0.1938511\n\n\nResidue\n0.1931525\n0.4995952\n0.5241356\n1.0000000\n0.1647598\n-0.4892339\n\n\nRegion\n-0.0323318\n0.2782582\n0.4577615\n0.1647598\n1.0000000\n-0.5071783\n\n\nQuality\n0.5122369\n-0.2516592\n-0.1938511\n-0.4892339\n-0.5071783\n1.0000000\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 2.12\n\n\nTable2.11 &lt;- fread(\"./data/Table2.11.csv\")\n\nTable2.11 %&gt;% \n  cor() %&gt;% \n  kbl()\n\n\n\n\n\n\n\n\n\n\nR OutputR CodeDownload Data\n\n\n\n\n\n\n\n\n\n\nFigure 2.12: Matrix of scatter plots for the shampoo data\n\n\n\n\n\n\n\n\nlibrary(GGally)\nggpairs(data = Table2.11)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Data Summary and Presentation</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html",
+    "href": "Ch03.html",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "",
+    "text": "3.1 Introduction",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#introduction",
+    "href": "Ch03.html#introduction",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "",
+    "text": "Introduction\n\n\n\n\nExperiment\nRandom\nRandom experiment\n\nFigure 3.1 illustrates the relationship between a mathematical model and the physical system it represents. While models like Newton’s laws are not perfect abstractions, they are useful for analyzing and approximating system performance. Once validated with measurements, models can help understand, describe, and predict a system’s response to inputs.\n\n\n\n\n\n\nFigure 3.1: Continuous iteration between model and physical system.\n\n\n\nFigure 3.2 illustrates a model where uncontrollable variables (noise) interact with controllable variables to produce system outputs. Due to the noise, identical controllable settings yield varying outputs upon measurement.\n\n\n\n\n\n\nFigure 3.2: Noise variables affect the transformation of inputs to outputs.\n\n\n\nFor measuring current in a copper wire, Ohm’s law may suffice as a model. However, if variations are significant, the model may need to account for them (see Figure 3.3).\n\n\n\n\n\n\nFigure 3.3: A closer examination of the system identifies deviations from the model.\n\n\n\nIn designing a voice communication system, a model is required for call frequency and duration. Even if calls occur and last precisely 5 minutes on average, variations in timing or duration can lead to call blocking, necessitating multiple lines (see Figure 3.4).\n\n\n\n\n\n\nFigure 3.4: Variation causes disruptions in the system.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#random-variables",
+    "href": "Ch03.html#random-variables",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.2 Random Variables",
+    "text": "3.2 Random Variables\n\n\n\n\n\n\nRandom Variables\n\n\n\n\nIn an experiment, a measurement is usually denoted by a variable such as X.\nIn a random experiment, a variable whose measured value can change (from one replicate of the experiment to another) is referred to as a random variable.\n\n\n\n\n\n\n\n\n\nRandom Variable\n\n\n\nA random variable is a numerical variable whose measured value can change from one replicate of the experiment to another.\n\n\n\n\n\n\n\n\nDiecrete Random Variable\n\n\n\n\nA discrete random variable is a random variable with a finite (or countably infinite) set of real numbers for its range.\nExamples of discrete random variables:\n\nnumber of scratches on a surface, proportion of defective parts among 1000 tested, number of transmitted bits received in error\n\n\n\n\n\n\n\n\n\n\nContinuous Random Variable\n\n\n\n\nA continuous random variable is a random variable with an interval (either finite or infinite) of real numbers for its range.\nExamples of continuous random variables:\n\nelectrical current, length, pressure, temperature, time, voltage, weight",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#probability",
+    "href": "Ch03.html#probability",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.3 Probability",
+    "text": "3.3 Probability\n\n\n\n\n\n\nProbability\n\n\n\n\nUsed to quantify likelihood or chance\nUsed to represent risk or uncertainty in engineering applications\nCan be interpreted as our degree of belief or relative frequency\nProbability statements describe the likelihood that particular values occur.\nThe likelihood is quantified by assigning a number from the interval [0, 1] to the set of values (or a percentage from 0 to 100%).\nHigher numbers indicate that the set of values is more likely.\nA probability is usually expressed in terms of a random variable.\nFor the part length example, X denotes the part length and the probability statement can be written in either of the following forms P\\left(X\\in\\left[10.8,11.2\\right]\\right)=0.25 or P\\left(10.8\\leq X\\leq11.2\\right)=0.25.\nBoth equations state that the probability that the random variable X assumes a value in \\left[10.8,11.2\\right] is 0.25.\n\n\n\n\n3.3.1 Complement of an Event\n\n\n\n\n\n\nComplement of an Event\n\n\n\nGiven a set E, the complement of E is the set of elements that are not in E. The complement is denoted as E^{\\prime} or E^{c}.\n\n\n\n\n3.3.2 Mutually Exclusive Events\n\n\n\n\n\n\nMutually Exclusive Events\n\n\n\nThe sets E_{1}, E_{2} ,\\ldots,E_{k} are mutually exclusive if the intersection of any pair is empty. That is, each element is in one and only one of the sets E_{1}, E_{2} ,\\ldots,E_{k}.\n\n\n\n\n3.3.3 Probability Properties\n\n\n\n\n\n\nProbability Properties\n\n\n\n\nP\\left(X\\in R\\right)=1, where R is the set of real numbers.\n0\\leq P\\left(X\\in E\\right)\\leq1 for any set E.\nIf E_{1}, E_{2} ,\\ldots,E_{k} are mutually exclusive sets, P\\left(X\\in E_{1}\\cup E_{2}\\cup\\ldots\\cup E_{k}\\right)=P\\left(X\\in E_{1}\\right)+P\\left(X\\in E_{2}\\right)+\\cdots+P\\left(X\\in E_{k}\\right)\n\n\n\n\n\n3.3.4 Events\n\n\n\n\n\n\nEvents\n\n\n\n\nA measured value is not always obtained from an experiment. Sometimes, the result is only classified (into one of several possible categories).\nThese categories are often referred to as events.\nIllustrations\n\nThe current measurement might only be recorded as low, medium, or high; a manufactured electronic component might be classified only as defective or not; and either a message is sent through a network or not.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#continuous-random-variables",
+    "href": "Ch03.html#continuous-random-variables",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.4 Continuous Random Variables",
+    "text": "3.4 Continuous Random Variables\n\n3.4.1 Probability Density Function\n\n\n\n\n\n\nProbability Density Function\n\n\n\n\nThe probability distribution or simply distribution of a random variable X is a description of the set of the probabilities associated with the possible values for X.\nThe probability density function (or pdf) f(x) of a continuous random variable X is used to determine probabilities as follows: \n  P(a &lt; X &lt; b) = \\int_{a}^{b} f(x)dx\n  \nThe properties of the pdf are\n\nf(x)\\geq 0\n\\int_{-\\infty}^{\\infty}f(x)dx=1\n\nIf X is a continuous random variable, for any x1 and x2, \n  P\\left(x_{1}\\leq X\\leq x_{2}\\right)=P\\left(x_{1}&lt;X\\leq x_{2}\\right)=P\\left(x_{1}\\leq X&lt;x_{2}\\right)=P\\left(x_{1}&lt;X&lt;x_{2}\\right)\n  \n\n\n\n\n\n\n\n\n\nExample\n\n\n\nLet the continuous random variable X denote the distance in micrometers from the start of a track on a magnetic disk until the first flaw. Historical data show that the distribution of X can be modeled by the probability density function (pdf):\n\nf(x) = \\frac{1}{2000} e^{-x/2000}, \\quad x \\geq 0.\n\nFor what proportion of disks is the distance to the first flaw greater than 1000 micrometers? What proportion of parts is between 1000 and 2000 micrometers?\nWe need to determine P(X &gt; 1000), which is given by:\n\nP(X &gt; 1000) = \\int_{1000}^{\\infty} f(x) \\,dx.\n\nSince X follows an exponential distribution with parameter \\lambda = 2000, the survival function of an exponential distribution is:\n\nP(X &gt; x) = e^{-x/\\lambda}.\n\nSubstituting x = 1000 and \\lambda = 2000:\n\nP(X &gt; 1000) = e^{-1000/2000} = e^{-0.5}.\n\nApproximating e^{-0.5}:\n\nP(X &gt; 1000) \\approx 0.6065.\n\nThus, approximately 60.65% of disks have the first flaw appearing after 1000 micrometers.\n\n\n\n\n3.4.2 Cumulative Distribution Function\n\n\n3.4.3 Mean and Variance",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#important-continuous-random-distributions",
+    "href": "Ch03.html#important-continuous-random-distributions",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.5 Important Continuous Random Distributions",
+    "text": "3.5 Important Continuous Random Distributions\n\n3.5.1 Normal Distribution\n\n\n3.5.2 Lognormal Distribution\n\n\n3.5.3 Gamma Distribution\n\n\n3.5.4 Weibull Distribution\n\n\n3.5.5 Beta Distribution",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#probability-plots",
+    "href": "Ch03.html#probability-plots",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.6 Probability Plots",
+    "text": "3.6 Probability Plots\n\n3.6.1 Normal Probability Plots\n\n\n3.6.2 Other Probability Plots",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#discrete-random-variables",
+    "href": "Ch03.html#discrete-random-variables",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.7 Discrete Random Variables",
+    "text": "3.7 Discrete Random Variables\n\n3.7.1 Probability Mass Function\n\n\n3.7.2 Cumulative Distribution Function\n\n\n3.7.3 Mean and Variance",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#binomial-distribution",
+    "href": "Ch03.html#binomial-distribution",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.8 Binomial Distribution",
+    "text": "3.8 Binomial Distribution",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#poisson-process",
+    "href": "Ch03.html#poisson-process",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.9 Poisson Process",
+    "text": "3.9 Poisson Process\n\n3.9.1 Poisson Distribution\n\n\n3.9.2 Exponential Distribution",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#normal-approximation-to-the-binomial-and-poisson-distributions",
+    "href": "Ch03.html#normal-approximation-to-the-binomial-and-poisson-distributions",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.10 Normal Approximation to the Binomial and Poisson Distributions",
+    "text": "3.10 Normal Approximation to the Binomial and Poisson Distributions",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#more-than-one-random-variable-and-independence",
+    "href": "Ch03.html#more-than-one-random-variable-and-independence",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.11 More than One Random Variable and Independence",
+    "text": "3.11 More than One Random Variable and Independence\n\n3.11.1 Joint Distributions\n\n\n3.11.2 Independence",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#functions-of-random-variables",
+    "href": "Ch03.html#functions-of-random-variables",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.12 Functions of Random Variables",
+    "text": "3.12 Functions of Random Variables\n\n3.12.1 Linear Functions of Independent Random Variables\n\n\n3.12.2 Linear Functions of Random Variables That Are Not Independent\n\n\n3.12.3 Nonlinear Functions of Independent Random Variables",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "Ch03.html#random-sample-statistics-and-the-central-limit-theorem",
+    "href": "Ch03.html#random-sample-statistics-and-the-central-limit-theorem",
+    "title": "3  Random Variables and Probability Distributions",
+    "section": "3.13 Random Sample, Statistics, and the Central Limit Theorem",
+    "text": "3.13 Random Sample, Statistics, and the Central Limit Theorem",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Random Variables and Probability Distributions</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Montgomery, D. C., Runger, G. C., & Hubele, N. F. (2014). Engineering statistics. Wiley.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
