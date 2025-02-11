@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.13">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Random Variables and Probability Distributions – Stat-4110: Statistical Methods for Process Development and Control</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ch04.html" rel="next">
+<link href="./Ch02.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6538b33ed9f7bbab4d3c1807d9130642.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././images/LogoSMSS.webp" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Stat-4110</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MYaseen208"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/MYaseen208"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/muhammad-yaseen-247800b4/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch03.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Random Variables and Probability Distributions</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Role of Statistics in Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summary and Presentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch03.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Decision Making for a Single Sample</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Decision Making for Two Samples</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Building Empirical Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical Process Control</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">3.2</span> Random Variables</a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">3.3</span> Probability</a>
+  <ul>
+  <li><a href="#complement-of-an-event" id="toc-complement-of-an-event" class="nav-link" data-scroll-target="#complement-of-an-event"><span class="header-section-number">3.3.1</span> Complement of an Event</a></li>
+  <li><a href="#mutually-exclusive-events" id="toc-mutually-exclusive-events" class="nav-link" data-scroll-target="#mutually-exclusive-events"><span class="header-section-number">3.3.2</span> Mutually Exclusive Events</a></li>
+  <li><a href="#probability-properties" id="toc-probability-properties" class="nav-link" data-scroll-target="#probability-properties"><span class="header-section-number">3.3.3</span> Probability Properties</a></li>
+  <li><a href="#events" id="toc-events" class="nav-link" data-scroll-target="#events"><span class="header-section-number">3.3.4</span> Events</a></li>
+  </ul></li>
+  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables"><span class="header-section-number">3.4</span> Continuous Random Variables</a>
+  <ul>
+  <li><a href="#probability-density-function" id="toc-probability-density-function" class="nav-link" data-scroll-target="#probability-density-function"><span class="header-section-number">3.4.1</span> Probability Density Function</a></li>
+  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function"><span class="header-section-number">3.4.2</span> Cumulative Distribution Function</a></li>
+  <li><a href="#mean-and-variance" id="toc-mean-and-variance" class="nav-link" data-scroll-target="#mean-and-variance"><span class="header-section-number">3.4.3</span> Mean and Variance</a></li>
+  </ul></li>
+  <li><a href="#important-continuous-random-distributions" id="toc-important-continuous-random-distributions" class="nav-link" data-scroll-target="#important-continuous-random-distributions"><span class="header-section-number">3.5</span> Important Continuous Random Distributions</a>
+  <ul>
+  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution"><span class="header-section-number">3.5.1</span> Normal Distribution</a></li>
+  <li><a href="#lognormal-distribution" id="toc-lognormal-distribution" class="nav-link" data-scroll-target="#lognormal-distribution"><span class="header-section-number">3.5.2</span> Lognormal Distribution</a></li>
+  <li><a href="#gamma-distribution" id="toc-gamma-distribution" class="nav-link" data-scroll-target="#gamma-distribution"><span class="header-section-number">3.5.3</span> Gamma Distribution</a></li>
+  <li><a href="#weibull-distribution" id="toc-weibull-distribution" class="nav-link" data-scroll-target="#weibull-distribution"><span class="header-section-number">3.5.4</span> Weibull Distribution</a></li>
+  <li><a href="#beta-distribution" id="toc-beta-distribution" class="nav-link" data-scroll-target="#beta-distribution"><span class="header-section-number">3.5.5</span> Beta Distribution</a></li>
+  </ul></li>
+  <li><a href="#probability-plots" id="toc-probability-plots" class="nav-link" data-scroll-target="#probability-plots"><span class="header-section-number">3.6</span> Probability Plots</a>
+  <ul>
+  <li><a href="#normal-probability-plots" id="toc-normal-probability-plots" class="nav-link" data-scroll-target="#normal-probability-plots"><span class="header-section-number">3.6.1</span> Normal Probability Plots</a></li>
+  <li><a href="#other-probability-plots" id="toc-other-probability-plots" class="nav-link" data-scroll-target="#other-probability-plots"><span class="header-section-number">3.6.2</span> Other Probability Plots</a></li>
+  </ul></li>
+  <li><a href="#discrete-random-variables" id="toc-discrete-random-variables" class="nav-link" data-scroll-target="#discrete-random-variables"><span class="header-section-number">3.7</span> Discrete Random Variables</a>
+  <ul>
+  <li><a href="#probability-mass-function" id="toc-probability-mass-function" class="nav-link" data-scroll-target="#probability-mass-function"><span class="header-section-number">3.7.1</span> Probability Mass Function</a></li>
+  <li><a href="#cumulative-distribution-function-2" id="toc-cumulative-distribution-function-2" class="nav-link" data-scroll-target="#cumulative-distribution-function-2"><span class="header-section-number">3.7.2</span> Cumulative Distribution Function</a></li>
+  <li><a href="#mean-and-variance-2" id="toc-mean-and-variance-2" class="nav-link" data-scroll-target="#mean-and-variance-2"><span class="header-section-number">3.7.3</span> Mean and Variance</a></li>
+  </ul></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution"><span class="header-section-number">3.8</span> Binomial Distribution</a></li>
+  <li><a href="#poisson-process" id="toc-poisson-process" class="nav-link" data-scroll-target="#poisson-process"><span class="header-section-number">3.9</span> Poisson Process</a>
+  <ul>
+  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution"><span class="header-section-number">3.9.1</span> Poisson Distribution</a></li>
+  <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution"><span class="header-section-number">3.9.2</span> Exponential Distribution</a></li>
+  </ul></li>
+  <li><a href="#normal-approximation-to-the-binomial-and-poisson-distributions" id="toc-normal-approximation-to-the-binomial-and-poisson-distributions" class="nav-link" data-scroll-target="#normal-approximation-to-the-binomial-and-poisson-distributions"><span class="header-section-number">3.10</span> Normal Approximation to the Binomial and Poisson Distributions</a></li>
+  <li><a href="#more-than-one-random-variable-and-independence" id="toc-more-than-one-random-variable-and-independence" class="nav-link" data-scroll-target="#more-than-one-random-variable-and-independence"><span class="header-section-number">3.11</span> More than One Random Variable and Independence</a>
+  <ul>
+  <li><a href="#joint-distributions" id="toc-joint-distributions" class="nav-link" data-scroll-target="#joint-distributions"><span class="header-section-number">3.11.1</span> Joint Distributions</a></li>
+  <li><a href="#independence" id="toc-independence" class="nav-link" data-scroll-target="#independence"><span class="header-section-number">3.11.2</span> Independence</a></li>
+  </ul></li>
+  <li><a href="#functions-of-random-variables" id="toc-functions-of-random-variables" class="nav-link" data-scroll-target="#functions-of-random-variables"><span class="header-section-number">3.12</span> Functions of Random Variables</a>
+  <ul>
+  <li><a href="#linear-functions-of-independent-random-variables" id="toc-linear-functions-of-independent-random-variables" class="nav-link" data-scroll-target="#linear-functions-of-independent-random-variables"><span class="header-section-number">3.12.1</span> Linear Functions of Independent Random Variables</a></li>
+  <li><a href="#linear-functions-of-random-variables-that-are-not-independent" id="toc-linear-functions-of-random-variables-that-are-not-independent" class="nav-link" data-scroll-target="#linear-functions-of-random-variables-that-are-not-independent"><span class="header-section-number">3.12.2</span> Linear Functions of Random Variables That Are Not Independent</a></li>
+  <li><a href="#nonlinear-functions-of-independent-random-variables" id="toc-nonlinear-functions-of-independent-random-variables" class="nav-link" data-scroll-target="#nonlinear-functions-of-independent-random-variables"><span class="header-section-number">3.12.3</span> Nonlinear Functions of Independent Random Variables</a></li>
+  </ul></li>
+  <li><a href="#random-sample-statistics-and-the-central-limit-theorem" id="toc-random-sample-statistics-and-the-central-limit-theorem" class="nav-link" data-scroll-target="#random-sample-statistics-and-the-central-limit-theorem"><span class="header-section-number">3.13</span> Random Sample, Statistics, and the Central Limit Theorem</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Random Variables and Probability Distributions</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="fullwidth">
+<p><a href="./images/Fig3.0.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./images/Fig3.0.webp" class="img-fluid"></a></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Major Themes of Stat-4110
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Basic Data Analysis:</strong> A discussion on gathering, displaying, and summarizing data</li>
+<li><strong>Probability:</strong> A study of the laws of chance</li>
+<li><strong>Statistical Inference:</strong> The science of drawing statistical conclusions from specific data using a knowledge of probability.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After careful study of this chapter, you should be able to do the following:</p>
+<ol type="1">
+<li>Determine probabilities for discrete random variables from probability mass functions and for continuous random variables from probability density functions, and use cumulative distribution functions in both cases.</li>
+<li>Calculate means and variances for discrete and continuous random variables.</li>
+<li>Understand the assumptions for each of the probability distributions presented.</li>
+<li>Select an appropriate probability distribution to calculate probabilities in specific applications.</li>
+<li>Use the table (or software) for the cumulative distribution function of a standard normal distribution to calculate probabilities.</li>
+<li>Approximate probabilities for binomial and Poisson distributions.</li>
+<li>Interpret and calculate covariances and correlations between random variables.</li>
+<li>Calculate means and variances for linear combinations of random variables.</li>
+<li>Approximate means and variances for general functions of several random variables.</li>
+<li>Understand statistics and the central limit theorem.</li>
+</ol>
+</div>
+</div>
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Introduction
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Experiment</p></li>
+<li><p>Random</p></li>
+<li><p>Random experiment</p></li>
+</ul>
+<p><a href="#fig-Fig3.1" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> illustrates the relationship between a mathematical model and the physical system it represents. While models like Newton’s laws are not perfect abstractions, they are useful for analyzing and approximating system performance. Once validated with measurements, models can help understand, describe, and predict a system’s response to inputs.</p>
+<div id="fig-Fig3.1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;3.1: Continuous iteration between model and physical system."><img src="./images/Fig3.1.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Continuous iteration between model and physical system.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-Fig3.2" class="quarto-xref">Figure&nbsp;<span>3.2</span></a> illustrates a model where uncontrollable variables (noise) interact with controllable variables to produce system outputs. Due to the noise, identical controllable settings yield varying outputs upon measurement.</p>
+<div id="fig-Fig3.2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3.2: Noise variables affect the transformation of inputs to outputs."><img src="./images/Fig3.2.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Noise variables affect the transformation of inputs to outputs.
+</figcaption>
+</figure>
+</div>
+<p>For measuring current in a copper wire, Ohm’s law may suffice as a model. However, if variations are significant, the model may need to account for them (see <a href="#fig-Fig3.3" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>).</p>
+<div id="fig-Fig3.3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;3.3: A closer examination of the system identifies deviations from the model."><img src="./images/Fig3.3.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: A closer examination of the system identifies deviations from the model.
+</figcaption>
+</figure>
+</div>
+<p>In designing a voice communication system, a model is required for call frequency and duration. Even if calls occur and last precisely 5 minutes on average, variations in timing or duration can lead to call blocking, necessitating multiple lines (see <a href="#fig-Fig3.4" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>).</p>
+<div id="fig-Fig3.4" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.4.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;3.4: Variation causes disruptions in the system."><img src="./images/Fig3.4.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Variation causes disruptions in the system.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="random-variables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">3.2</span> Random Variables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Random Variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>In an experiment, a measurement is usually denoted by a variable such as <span class="math inline">X</span>.</li>
+<li>In a random experiment, a variable whose measured value can change (from one replicate of the experiment to another) is referred to as a random variable.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random variable is a numerical variable whose measured value can change from one replicate of the experiment to another.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Diecrete Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A discrete random variable is a random variable with a finite (or countably infinite) set of real numbers for its range.</li>
+<li>Examples of discrete random variables:
+<ul>
+<li>number of scratches on a surface, proportion of defective parts among 1000 tested, number of transmitted bits received in error</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Continuous Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A continuous random variable is a random variable with an interval (either finite or infinite) of real numbers for its range.</li>
+<li>Examples of continuous random variables:
+<ul>
+<li>electrical current, length, pressure, temperature, time, voltage, weight</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="probability" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="probability"><span class="header-section-number">3.3</span> Probability</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Used to quantify likelihood or chance</p></li>
+<li><p>Used to represent risk or uncertainty in engineering applications</p></li>
+<li><p>Can be interpreted as our degree of belief or relative frequency</p></li>
+<li><p>Probability statements describe the likelihood that particular values occur.</p></li>
+<li><p>The likelihood is quantified by assigning a number from the interval [0, 1] to the set of values (or a percentage from 0 to 100%).</p></li>
+<li><p>Higher numbers indicate that the set of values is more likely.</p></li>
+<li><p>A probability is usually expressed in terms of a random variable.</p></li>
+<li><p>For the part length example, X denotes the part length and the probability statement can be written in either of the following forms <span class="math inline">P\left(X\in\left[10.8,11.2\right]\right)=0.25</span> or <span class="math inline">P\left(10.8\leq X\leq11.2\right)=0.25</span>.</p></li>
+<li><p>Both equations state that the probability that the random variable X assumes a value in <span class="math inline">\left[10.8,11.2\right]</span> is 0.25.</p></li>
+</ul>
+</div>
+</div>
+<section id="complement-of-an-event" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="complement-of-an-event"><span class="header-section-number">3.3.1</span> Complement of an Event</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Complement of an Event
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given a set <span class="math inline">E</span>, the complement of <span class="math inline">E</span> is the set of elements that are not in <span class="math inline">E</span>. The complement is denoted as <span class="math inline">E^{\prime}</span> or <span class="math inline">E^{c}</span>.</p>
+</div>
+</div>
+</section>
+<section id="mutually-exclusive-events" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="mutually-exclusive-events"><span class="header-section-number">3.3.2</span> Mutually Exclusive Events</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mutually Exclusive Events
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sets <span class="math inline">E_{1}, E_{2} ,\ldots,E_{k}</span> are mutually exclusive if the intersection of any pair is empty. That is, each element is in one and only one of the sets <span class="math inline">E_{1}, E_{2} ,\ldots,E_{k}</span>.</p>
+</div>
+</div>
+</section>
+<section id="probability-properties" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="probability-properties"><span class="header-section-number">3.3.3</span> Probability Properties</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability Properties
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><span class="math inline">P\left(X\in R\right)=1</span>, where <span class="math inline">R</span> is the set of real numbers.</li>
+<li><span class="math inline">0\leq P\left(X\in E\right)\leq1</span> for any set E.</li>
+<li>If <span class="math inline">E_{1}, E_{2} ,\ldots,E_{k}</span> are mutually exclusive sets, <span class="math display">P\left(X\in E_{1}\cup E_{2}\cup\ldots\cup E_{k}\right)=P\left(X\in E_{1}\right)+P\left(X\in E_{2}\right)+\cdots+P\left(X\in E_{k}\right)</span></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="events" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="events"><span class="header-section-number">3.3.4</span> Events</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Events
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A measured value is not always obtained from an experiment. Sometimes, the result is only classified (into one of several possible categories).</li>
+<li>These categories are often referred to as events.</li>
+<li>Illustrations
+<ul>
+<li>The current measurement might only be recorded as <em>low</em>, <em>medium</em>, or <em>high</em>; a manufactured electronic component might be classified only as defective or not; and either a message is sent through a network or not.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="continuous-random-variables" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="continuous-random-variables"><span class="header-section-number">3.4</span> Continuous Random Variables</h2>
+<section id="probability-density-function" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="probability-density-function"><span class="header-section-number">3.4.1</span> Probability Density Function</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability Density Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>The probability distribution or simply distribution of a random variable X is a description of the set of the probabilities associated with the possible values for X.</p></li>
+<li><p>The probability density function (or pdf) <span class="math inline">f(x)</span> of a continuous random variable X is used to determine probabilities as follows: <span class="math display">
+  P(a &lt; X &lt; b) = \int_{a}^{b} f(x)\,dx
+  </span></p></li>
+<li><p>The properties of the pdf are</p>
+<ul>
+<li><span class="math inline">f(x)\geq 0</span></li>
+<li><span class="math inline">\int_{-\infty}^{\infty}f(x)dx=1</span></li>
+</ul></li>
+<li><p>If <span class="math inline">X</span> is a continuous random variable, for any <span class="math inline">x1</span> and <span class="math inline">x2</span>, <span class="math display">
+  P\left(x_{1}\leq X\leq x_{2}\right)=P\left(x_{1}&lt;X\leq x_{2}\right)=P\left(x_{1}\leq X&lt;x_{2}\right)=P\left(x_{1}&lt;X&lt;x_{2}\right)
+  </span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let the continuous random variable <span class="math inline">X</span> denote the distance in micrometers from the start of a track on a magnetic disk until the first flaw. Historical data show that the distribution of <span class="math inline">X</span> can be modeled by the probability density function (pdf):</p>
+<p><span class="math display">
+f(x) = \frac{1}{2000} e^{-x/2000}, \quad x \geq 0.
+</span></p>
+<p>For what proportion of disks is the distance to the first flaw greater than 1000 micrometers? What proportion of parts is between 1000 and 2000 micrometers?</p>
+<div id="fig-Fig3.5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.5.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;3.5: Probability density function"><img src="./images/Fig3.5.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Probability density function
+</figcaption>
+</figure>
+</div>
+<p>The probability that the distance to the first flaw is greater than 1000 micrometers is given by:</p>
+<p><span class="math display">
+\begin{align*}
+P(X &gt; 1000) &amp;= \int_{1000}^{\infty} f(x)\,dx \\
+&amp;= \int_{1000}^{\infty} \frac{1}{2000} e^{-x/2000} \,dx.
+\end{align*}
+</span></p>
+<p>To evaluate the integral, we use the formula for the integral of an exponential function:</p>
+<p><span class="math display">\int e^{-ax} \,dx = \frac{e^{-ax}}{-a}.</span></p>
+<p>Here, <span class="math inline">a = \frac{1}{2000}</span>, so:</p>
+<p><span class="math display">
+\begin{align*}
+P(X &gt; 1000) &amp;= \left[ -e^{-x/2000} \right]_{1000}^{\infty} \\
+&amp;= \left( 0 - \left( -e^{-1000/2000} \right) \right) \\
+&amp;= e^{-1/2} \\
+&amp;\approx 0.6065.
+\end{align*}
+</span></p>
+<p>Thus, the proportion of disks where the distance to the first flaw is greater than 1000 micrometers is <strong>approximately 0.6065</strong>.</p>
+<p>The probability that the distance to the first flaw is between <strong>1000 and 2000 micrometers</strong> is given by:</p>
+<p><span class="math display">
+\begin{align*}
+P(1000 \leq X \leq 2000) &amp;= \int_{1000}^{2000} f(x)\,dx \\
+&amp;= \int_{1000}^{2000} \frac{1}{2000} e^{-x/2000} \,dx. \\
+&amp; = \left[ -e^{-x/2000} \right]_{1000}^{2000} \\
+&amp;= e^{-1/2} - e^{-1}\\
+&amp;= 0.6065 - 0.3679 \\
+&amp;= 0.2386.
+\end{align*}
+</span></p>
+<p>Therefore, the proportion of parts with a flaw distance between 1000 and 2000 micrometers is <strong>approximately 0.2386</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6065307</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2386512</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pdf1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {(<span class="dv">1</span><span class="sc">/</span><span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">/</span><span class="dv">2000</span>)}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">f     =</span> pdf1</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>          , <span class="at">lower =</span> <span class="dv">1000</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          , <span class="at">upper =</span> <span class="cn">Inf</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          )<span class="sc">$</span>value</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">f     =</span> pdf1</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          , <span class="at">lower =</span> <span class="dv">1000</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>          , <span class="at">upper =</span> <span class="dv">2000</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>          )<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cumulative-distribution-function" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="cumulative-distribution-function"><span class="header-section-number">3.4.2</span> Cumulative Distribution Function</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cumulative Distribution Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The cumulative distribution function (or cdf) of a continuous random variable <span class="math inline">X</span> with probability density function <span class="math inline">f(x)</span> is <span class="math display">
+  F(X) = P(X \leq x) = \int_{-\infty}^{x} f(u)\,du
+  </span> for <span class="math inline">-\infty &lt; x &lt; \infty</span>.</p>
+</div>
+</div>
+<p>For a continuous random variable <span class="math inline">X</span>, the definition can also be <span class="math inline">F(x)= P(X &lt; x)</span> because <span class="math inline">P(X = x) = 0</span>.</p>
+<p>The cumulative distribution function <span class="math inline">F(x)</span> can be related to the probability density function <span class="math inline">f(x)</span> and can be used to obtain probabilities as follows.</p>
+<p><span class="math display">
+\begin{align*}
+P(a&lt;X&lt;b) &amp; = \int_{a}^{b} f(x)\,dx \\
+&amp; = \int_{-\infty}^{b} f(x)\,dx - \int_{-\infty}^{a} f(x)\,dx \\
+&amp; = F(b) - F(a)
+\end{align*}
+</span> Furthermore, the graph of a cdf has specific properties. Because <span class="math inline">F(x)</span> provides probabilities, it is always nonnegative. Furthermore, as <span class="math inline">x</span> increases, <span class="math inline">F(x)</span> is nondecreasing. Finally, as <span class="math inline">x</span> tends to infinity, <span class="math inline">F (x) = P(X \leq x)</span> tends to 1.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let the continuous random variable <span class="math inline">X</span> denote the distance in micrometers from the start of a track on a magnetic disk until the first flaw. Historical data show that the distribution of <span class="math inline">X</span> can be modeled by the probability density function (pdf):</p>
+<p><span class="math display">
+f(x) = \frac{1}{2000} e^{-x/2000}, \quad x \geq 0.
+</span></p>
+<p>The cdf is determined from</p>
+<p><span class="math display">
+\begin{align*}
+F(X) &amp; = P(X \leq x) = \int_{0}^{x} \frac{1}{2000} e^{-u/2000}\,du = 1- e^{-x/2000}
+\end{align*}
+</span></p>
+<p>for <span class="math inline">x \geq 0</span>. It can be checked that <span class="math inline">\frac{d}{dx}F(x) = f(x)</span>.</p>
+<div id="fig-Fig3.6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.6.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;3.6: Cumulative distribution function"><img src="./images/Fig3.6.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Cumulative distribution function
+</figcaption>
+</figure>
+</div>
+<p>A graph of <span class="math inline">F(x)</span> is shown in <a href="#fig-Fig3.6" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>. Note that <span class="math inline">F(x)=0</span> for <span class="math inline">x \leq 0</span>. Also, <span class="math inline">F(x)</span> increases to 1 as mentioned. The following probabilities should be compared to the results in previous Example.</p>
+<p>Determine the probability that the distance until the first surface flaw is greater than 1000 micrometers.</p>
+<p><span class="math display">
+\begin{align*}
+P(X &gt; 1000) &amp;= 1- P(X &lt; 1000) = 1- F(1000) \\
+&amp;= 1- \left(1- e^{-1000/2000} \right) = e^{-1/2}\\
+&amp;\approx 0.6065.
+\end{align*}
+</span></p>
+<p>Thus, the proportion of disks where the distance to the first flaw is greater than 1000 micrometers is <strong>approximately 0.6065</strong>.</p>
+<p>Determine the probability that the distance is between 1000 and 2000 micrometers.</p>
+<p><span class="math display">
+\begin{align*}
+P(1000 \leq X \leq 2000) &amp;= F(2000) - F(1000) \\
+&amp;= \left(1- e^{-2000/2000} \right) - \left(1- e^{-1000/2000} \right)\\
+&amp;= e^{-1/2} - e^{-1}\\
+&amp;= 0.6065 - 0.3679 \\
+&amp;= 0.2386.
+\end{align*}
+</span></p>
+<p>Therefore, the proportion of parts with a flaw distance between 1000 and 2000 micrometers is <strong>approximately 0.2386</strong>.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6065307</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2386512</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cdf1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {<span class="dv">1</span> <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">/</span><span class="dv">2000</span>)}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf1</span>(<span class="dv">1000</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cdf1</span>(<span class="dv">2000</span>) <span class="sc">-</span> <span class="fu">cdf1</span>(<span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-and-variance" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="mean-and-variance"><span class="header-section-number">3.4.3</span> Mean and Variance</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mean and Variance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">X</span> is a continuous random variable with pdf <span class="math inline">f(x)</span>. The <strong>mean</strong> or <strong>expected value</strong> of <span class="math inline">X</span>, denoted as <span class="math inline">\mu</span> or <span class="math inline">E(X)</span>, is</p>
+<p><span class="math display">
+\mu = E(X) = \int_{-\infty}^{\infty} xf(x)\,dx.
+</span></p>
+<p>The <strong>variance</strong> of <span class="math inline">X</span>, denoted as <span class="math inline">V(X)</span> or <span class="math inline">\sigma^{2}</span>, is</p>
+<p><span class="math display">
+\sigma^{2} = V(X) = \int_{-\infty}^{\infty} (x-\mu)^{2}f(x)\,dx = E(X^2) - \mu^{2}.
+</span></p>
+<p>The <strong>standard deviation</strong> of <span class="math inline">X</span> is <span class="math inline">\sigma</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the distance to a flaw in the previous example, the mean of <span class="math inline">X</span> is</p>
+<p><span class="math display">
+\begin{align*}
+E(X) &amp; = \int_{-\infty}^{\infty} x f(x)\,dx = \int_{0}^{\infty} x \frac{e^{-x/2000}}{2000}\,dx \\
+&amp; = \left[ -xe^{-x/2000} \right]_{0}^{\infty} + \int_{0}^{\infty}  \frac{e^{-x/2000}}{2000}\,dx \\
+E(X) &amp; = 0 - \left[ 2000 e^{-x/2000} \right]_{0}^{\infty} = 2000.
+\end{align*}
+</span></p>
+<p>The variance of <span class="math inline">X</span> is</p>
+<p><span class="math display">
+\begin{align*}
+V(X) &amp; = \int_{-\infty}^{\infty} (x-\mu)^2 f(x)\,dx = \int_{0}^{\infty} (x-2000)^2 \frac{e^{-x/2000}}{2000}\,dx \\
+V(X) &amp; = 2000^2 = 4,000,000.
+\end{align*}
+</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2000</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4000000</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Mean1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {x<span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">/</span><span class="dv">2000</span>)}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">f     =</span> Mean1</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>          , <span class="at">lower =</span> <span class="dv">0</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>          , <span class="at">upper =</span> <span class="cn">Inf</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>          )<span class="sc">$</span>value</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>Variance1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {(x<span class="dv">-2000</span>)<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2000</span>) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">/</span><span class="dv">2000</span>)}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">f     =</span> Variance1</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>          , <span class="at">lower =</span> <span class="dv">0</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>          , <span class="at">upper =</span> <span class="cn">Inf</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>          )<span class="sc">$</span>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="important-continuous-random-distributions" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="important-continuous-random-distributions"><span class="header-section-number">3.5</span> Important Continuous Random Distributions</h2>
+<section id="normal-distribution" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="normal-distribution"><span class="header-section-number">3.5.1</span> Normal Distribution</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Normal Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Undoubtedly, the most widely used model for the distribution of a random variable is a normal distribution.</p>
+<ul>
+<li>Central limit theorem</li>
+<li>Gaussian distribution</li>
+</ul>
+<div id="fig-Fig3.7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.7.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;3.7: Normal probability density functions for selected values of the parameters \mu and \sigma^2."><img src="./images/Fig3.7.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Normal probability density functions for selected values of the parameters <span class="math inline">\mu</span> and <span class="math inline">\sigma^2</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Normal Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A random variable <span class="math inline">X</span> with probability density function</p>
+<p><span class="math display">
+\begin{align*}
+f\left(X\right)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\left\{ -\frac{1}{2}\left(\frac{X-\mu}{\sigma}\right)^{2}\right\} .
+\end{align*}
+</span></p>
+<p>has a normal distribution (and is called a normal random variable) with parameters <span class="math inline">\mu</span> and <span class="math inline">\sigma</span>, where <span class="math inline">-\infty &lt; \mu &lt; \infty</span> and <span class="math inline">\sigma &gt; 0</span>. Also</p>
+<p><span class="math display">
+E(X) = \mu \quad \text{and} \quad V(X) = \sigma^2
+</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Assume that the current measurements in a strip of wire follow a normal distribution with a mean of 10 milliamperes and a variance of 4 <span class="math inline">\text{milliamperes}^2</span>. What is the probability that a measurement exceeds 13 milliamperes?</p>
+<p><br></p>
+<p>Let <span class="math inline">X</span> denote the current in milliamperes. The requested probability can be represented as <span class="math inline">P(X &gt; 13)</span>. This probability is shown as the shaded area under the normal probability density function in <a href="#fig-Fig3.8" class="quarto-xref">Figure&nbsp;<span>3.8</span></a>. Unfortunately, there is no closed-form expression for the integral of a normal pdf, and probabilities based on the normal distribution are typically found numerically or from a table.</p>
+<div id="fig-Fig3.8" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.8.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;3.8: Probability that X > 13 for a normal random variable with \mu = 10 and \sigma^2 = 4."><img src="./images/Fig3.8.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.8: Probability that <span class="math inline">X &gt; 13</span> for a normal random variable with <span class="math inline">\mu = 10</span> and <span class="math inline">\sigma^2 = 4</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Normal Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\begin{align*}
+P(\mu - \sigma &lt; X &lt; \mu + \sigma) &amp; = 0.6827\\
+P(\mu - 2\sigma &lt; X &lt; \mu + 2\sigma) &amp; = 0.9545\\
+P(\mu - 3\sigma &lt; X &lt; \mu + 3\sigma) &amp; = 0.9973\\
+\end{align*}
+</span></p>
+<div id="fig-Fig3.9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.9.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;3.9: Probabilities associated with a normal distribution."><img src="./images/Fig3.9.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.9: Probabilities associated with a normal distribution.
+</figcaption>
+</figure>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6826895</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9544997</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9973002</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>) <span class="sc">-</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>) <span class="sc">-</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">3</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>) <span class="sc">-</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standard Normal Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A normal random variable with <span class="math inline">\mu = 0</span> and <span class="math inline">\sigma^2 = 1</span> is called a standard normal random variable. A standard normal random variable is denoted as Z.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standard Normal Cumulative Distribution Function
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The function <span class="math display">
+\Phi(z) = P(Z \leq z)
+</span></p>
+<p>is used to denote the cumulative distribution function of a standard normal random variable. A table (or computer software) is required because the probability cannot be calculated in general by elementary methods.</p>
+</div>
+</div>
+<div id="fig-Fig3.10" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.10.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;3.10: Standard normal probability density function."><img src="./images/Fig3.10.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.10: Standard normal probability density function.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Table1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe width="100%" height="600" src="./images/Table1.pdf">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.11: Cumulative Standard Normal Distribution
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following calculations are shown pictorially in <a href="#fig-Fig3.11" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>.</p>
+<ol type="1">
+<li><span class="math inline">P(Z &gt; 1.26) = 1 - P(Z \leq 1.26) = 1 - 0.89616 = 0.10384</span></li>
+<li><span class="math inline">P(Z &lt; - 0.86) = 0.19490</span></li>
+<li><span class="math inline">P(Z &gt; - 1.37) = P(Z &lt; 1.37) = 0.91465</span></li>
+<li><span class="math inline">P(-1.25 &lt; Z &lt; 0.37) = P(&lt; 0.37) - P(Z &lt; -1.25) = 0.64431 - 0.10565 = 0.53866</span></li>
+<li><span class="math inline">P(Z \leq -4.6) \approx 0</span></li>
+<li>Find the value <span class="math inline">z</span> such that <span class="math inline">P(Z &gt; z) = 0.05</span>. This probability equation can be written as <span class="math inline">P(Z \leq z) = 0.95</span>. Now, Table I (<a href="#fig-Table1" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>) is used in reverse. We search through the probabilities to find the value that corresponds to 0.95. The solution is illustrated in <a href="#fig-Fig3.11" class="quarto-xref">Figure&nbsp;<span>3.12</span></a>. We do not find 0.95 exactly;the nearest value is 0.95053, corresponding to <span class="math inline">z = 1.65</span>.</li>
+<li>Find the value of <span class="math inline">z</span> such that <span class="math inline">P(-z &lt; Z &lt; z) = 0.99</span>. Because of the symmetry of the normal distribution, if the area of the shaded region in Fig. <a href="#fig-Fig3.11" class="quarto-xref">Figure&nbsp;<span>3.12</span></a> is to equal 0.99, the area in each tail of the distribution must equal 0.005. Therefore, the value for z corresponds to a probability of 0.995 in Table I. The nearest probability in Table I (<a href="#fig-Table1" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>) is 0.99506, when <span class="math inline">z = 2.58</span>.</li>
+</ol>
+<div id="fig-Fig3.11" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.11.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;3.12: Graphical displays for Example."><img src="./images/Fig3.11.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.11-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.12: Graphical displays for Example.
+</figcaption>
+</figure>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1038347</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1038347</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1948945</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9146565</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9146565</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.538659</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.000002112455</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.575829</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">1.26</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">1.26</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="fl">0.86</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="fl">1.37</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="fl">1.37</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">0.37</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>) <span class="sc">-</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="fl">1.25</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="sc">-</span><span class="fl">4.6</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.05</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.995</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standard Normal Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If <span class="math inline">X</span> is a normal random variable with <span class="math inline">E(X) = \mu</span> and <span class="math inline">V(X) = \sigma^2</span>, the random variable <span class="math display"> Z = \frac{X-\mu}{\sigma}</span></p>
+<p>is a normal random variable with <span class="math inline">E(Z ) = 0</span> and <span class="math inline">V(Z ) = 1</span>. That is, <span class="math inline">Z</span> is a standard normal random variable.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Standardizing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose <span class="math inline">X</span> is a normal random variable with mean <span class="math inline">\mu</span> and variance <span class="math inline">\sigma^2</span>. Then</p>
+<p><span class="math display"> P\left(X \leq x\right) = p\left(\frac{X-\mu}{\sigma} \leq \frac{x-\mu}{\sigma}\right)  = P\left(Z \leq z\right) </span> where <span class="math inline">Z</span> is a standard normal random variable, and and <span class="math inline">z = \frac{x-\mu}{\sigma}</span> is the z-value obtained by standardizing <span class="math inline">x</span>. The probability is obtained by entering Appendix A Table I (<a href="#fig-Table1" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>) with <span class="math inline">z = \frac{x-\mu}{\sigma}</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The diameter of a shaft in a storage drive is normally distributed with mean 0.2508 inch and standard deviation 0.0005 inch. The specifications on the shaft are <span class="math inline">0.2500 \pm 0.0015</span> inch. What proportion of shafts conforms to specifications?</p>
+<p>Let <span class="math inline">X</span> denote the shaft diameter in inches. The requested probability is shown in <a href="#fig-Fig3.12" class="quarto-xref">Figure&nbsp;<span>3.13</span></a> and <span class="math display">
+\begin{align*}
+P\left(0.2485 &lt; X &lt; 0.2515\right) &amp; = p\left(\frac{0.2485-0.2508}{0.0005} \leq \frac{0.2515-0.2508}{0.0005}\right)\\
+&amp;= P\left(-4.6&lt; Z &lt; 1.4\right) = = P\left(Z &lt; 1.4\right) -P\left(Z &lt; -4.6\right)\\
+&amp;= 0.91924-0.00000=0.91924
+\end{align*}
+</span></p>
+<div id="fig-Fig3.12" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.12.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;3.13: Distribution"><img src="./images/Fig3.12.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.12-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.13: Distribution
+</figcaption>
+</figure>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9192412</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">0.2515</span>, <span class="at">mean =</span> <span class="fl">0.2508</span>, <span class="at">sd =</span> <span class="fl">0.0005</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>) <span class="sc">-</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="fl">0.2485</span>, <span class="at">mean =</span> <span class="fl">0.2508</span>, <span class="at">sd =</span> <span class="fl">0.0005</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="lognormal-distribution" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="lognormal-distribution"><span class="header-section-number">3.5.2</span> Lognormal Distribution</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lognormal Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">W</span> have a normal distribution with mean <span class="math inline">\theta</span> and variance <span class="math inline">\omega^{2}</span>. Then <span class="math inline">X=\exp\left(W\right)</span> is a lognormal random variable with probability density function</p>
+<p><span class="math display">
+f\left(x\right)=\frac{1}{x\sqrt{2\pi\omega^{2}}}\exp\left\{ -\frac{1}{2}\left(\frac{\ln\left(x\right)-\theta}{\omega}\right)^{2}\right\} \quad\text{for}\quad0&lt;x&lt;\infty
+</span></p>
+<p>The mean and variance of <span class="math inline">X</span> are <span class="math display">
+E\left(X\right)=\exp\left(\theta+\frac{1}{2}\omega^{2}\right)
+</span> and <span class="math display">
+V\left(X\right)=\exp\left(2\theta+\omega^{2}\right)\left\{ \exp\left(\omega^{2}\right)-1\right\}
+</span> respectively.</p>
+<div id="fig-Fig3.13" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.13.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;3.14: Lognormal probability density functions with \theta = 0 for selected values of \omega^{2}."><img src="./images/Fig3.13.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.14: Lognormal probability density functions with <span class="math inline">\theta = 0</span> for selected values of <span class="math inline">\omega^{2}</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The lifetime of a semiconductor laser has a lognormal distribution with <span class="math inline">\theta = 10</span> and <span class="math inline">\omega = 1.5</span> hours. What is the probability the lifetime exceeds 10,000 hours? What lifetime is exceeded by 99% of lasers? Determine the mean and variance of lifetime.</p>
+<p>The random variable <span class="math inline">X</span> is the lifetime of a semiconductor laser. From the cumulative distribution function for <span class="math inline">X</span></p>
+<p><span class="math display">
+\begin{align*}
+P\left(X &gt; 10,000\right) &amp; = 1- P\left(X &lt; 10,000\right)\\
+&amp; = 1- P\left(\exp(W) &lt; 10,000\right)\\
+&amp; = 1- P\left(W &lt; \ln(10,000) \right)\\
+&amp; = 1- P\left(\frac{W-\theta}{\omega} &lt; \frac{\ln(10,000)-10}{1.5} \right)\\
+P\left(X &gt; 10,000\right)&amp;= 1- \Phi\left(-0.52 \right) = 1 - 0.30 = 0.70
+\end{align*}
+</span> Now the question is to determine <span class="math inline">x</span> such that <span class="math inline">P(X&gt;x) = 0.99</span>. Therefore,</p>
+<p><span class="math display">
+\begin{align*}
+P\left(X &gt; x\right) &amp; = 1- P\left(X &lt; x\right)\\
+&amp; = 1- P\left(\exp(W) &lt; x\right)\\
+&amp; = 1- P\left(W &lt; \ln(x) \right)\\
+&amp; = 1- P\left(\frac{W-\theta}{\omega} &lt; \frac{\ln(x)-10}{1.5} \right)\\
+&amp;= 0.99
+\end{align*}
+</span> From <a href="#fig-Table1" class="quarto-xref">Figure&nbsp;<span>3.11</span></a>, <span class="math inline">1 - \Phi(z) = 0.99</span> when <span class="math inline">z = -2.33</span>. Therefore, <span class="math inline">\frac{\ln(x)-10}{1.5} = -2.3263</span> and <span class="math inline">x = \exp(6.5105) \approx 672.5\, \text{hours}</span>.</p>
+<p>The mean of lifetime is <span class="math display">
+\begin{align*}
+E\left(X\right)&amp;=\exp\left(\theta+\frac{1}{2}\omega^{2}\right)\\
+E\left(X\right)&amp; = \exp\left(10+\frac{1}{2}\times1.5^{2}\right) = 67,846.3
+\end{align*}
+</span> The variance of lifetime is <span class="math display">
+\begin{align*}
+V\left(X\right)&amp;=\exp\left(2\theta+\omega^{2}\right)\left\{ \exp\left(\omega^{2}\right)-1\right\}\\
+&amp; = \exp\left(2\times10+1.5^{2}\right)\left\{ \exp\left(1.5^{2}\right)-1\right\}\\
+V\left(X\right)&amp; = 39,070,059,886.6
+\end{align*}
+</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7007086</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 672.1478</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 672.1478</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 67846.29</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 39070059887</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">plnorm</span>(<span class="at">q =</span> <span class="dv">10000</span>, <span class="at">meanlog =</span> <span class="dv">10</span>, <span class="at">sdlog =</span> <span class="fl">1.5</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">qlnorm</span>(<span class="at">p =</span> <span class="fl">0.99</span>, <span class="at">meanlog =</span> <span class="dv">10</span>, <span class="at">sdlog =</span> <span class="fl">1.5</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qlnorm</span>(<span class="at">p =</span> <span class="fl">0.01</span>, <span class="at">meanlog =</span> <span class="dv">10</span>, <span class="at">sdlog =</span> <span class="fl">1.5</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">10</span> <span class="sc">+</span> (<span class="fl">1.5</span><span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="dv">2</span><span class="sc">*</span><span class="dv">10</span> <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="fl">1.5</span><span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="gamma-distribution" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="gamma-distribution"><span class="header-section-number">3.5.3</span> Gamma Distribution</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gamma Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The random variable <span class="math inline">X</span> with probability density function <span class="math display">
+f\left(x\right)=\frac{\lambda^{r}x^{r-1}\exp\left(-\lambda x\right)}{\Gamma\left(r\right)}\quad\text{for}\quad x&gt;0
+</span></p>
+<p>is a gamma random variable with shape parameter <span class="math inline">r&gt;0</span> and rate parameter <span class="math inline">\lambda&gt;0</span>. <span class="math inline">\Gamma\left(r\right)</span> is the gamma function defined as: <span class="math inline">\Gamma\left(r\right)=\int_{0}^{\infty} x^{r-1} \exp(-x)\,dx</span>, for <span class="math inline">r&gt;0</span>. The mean and variance of <span class="math inline">X</span> are <span class="math display">
+E\left(X\right)=\frac{r}{\lambda}
+</span> and <span class="math display">
+V\left(X\right)=\frac{r}{\lambda^{2}}
+</span> respectively.</p>
+<div id="fig-Fig3.14" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.14.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;3.15: Gamma probability density functions for selected values of \lambda and r."><img src="./images/Fig3.14.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.14-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.15: Gamma probability density functions for selected values of <span class="math inline">\lambda</span> and <span class="math inline">r</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="weibull-distribution" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="weibull-distribution"><span class="header-section-number">3.5.4</span> Weibull Distribution</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Weibull Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The random variable <span class="math inline">X</span> with probability density function <span class="math display">
+f\left(x\right)=\frac{\beta}{\delta}\left(\frac{x}{\delta}\right)^{\beta-1}\exp\left\{ -\left(\frac{x}{\delta}\right)^{\beta}\right\} \quad\text{for}\quad x&gt;0
+</span></p>
+<p>is a Weibull random variable with scale parameter <span class="math inline">\delta&gt;0</span> and shape parameter <span class="math inline">\beta&gt;0</span>.</p>
+<p>If <span class="math inline">X</span> has a Weibull distribution with parameters <span class="math inline">\delta&gt;0</span> and <span class="math inline">\beta&gt;0</span>, the cumulative distribution function of <span class="math inline">X</span> is</p>
+<p><span class="math display">
+F\left(x\right)=1 - \exp\left\{ -\left(\frac{x}{\delta}\right)^{\beta}\right\}
+</span></p>
+<p>The mean and variance of <span class="math inline">X</span> are <span class="math display">
+E\left(X\right)=\delta\Gamma\left(1+\frac{1}{\beta}\right)
+</span> and <span class="math display">
+V\left(X\right)=\delta^{2}\Gamma\left(1+\frac{2}{\beta}\right)-\delta^{2}\left\{ \Gamma\left(1+\frac{1}{\beta}\right)\right\} ^{2}
+</span> respectively.</p>
+<div id="fig-Fig3.15" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.15.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;3.16: Weibull probability density functions for selected values of \delta and \beta."><img src="./images/Fig3.15.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.15-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.16: Weibull probability density functions for selected values of <span class="math inline">\delta</span> and <span class="math inline">\beta</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The time to failure (in hours) of a bearing in a mechanical shaft is satisfactorily modeled as a Weibull random variable with $= $ and <span class="math inline">\delta=5000</span> hours. Determine the mean time until failure. Determine the probability that a bearing lasts at least 6000 hours.</p>
+<p>The mean time until failure is <span class="math display">
+\begin{align*}
+E\left(X\right)&amp;=\delta\Gamma\left(1+\frac{1}{\beta}\right)\\
+&amp;=5000\times\Gamma\left(1+2\right)\\
+&amp;= 5000\times2! = 10,000 \, \text{hours}
+\end{align*}
+</span> The probability that a bearing lasts at least 6000 hours is</p>
+<p><span class="math display">
+\begin{align*}
+P\left(X &gt; 6000\right)&amp;= 1- F\left(6000\right)\\
+&amp;=\exp\left\{ -\left(\frac{6000}{5000}\right)^{1.5}\right\}\\
+&amp;= 0.334\\
+\end{align*}
+</span> Consequently, only 33.4% of all bearings last at least 6000 hours.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10000</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3343907</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5000</span><span class="sc">*</span><span class="fu">gamma</span>(<span class="dv">1</span><span class="sc">+</span><span class="dv">1</span><span class="sc">/</span><span class="fl">0.5</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pweibull</span>(<span class="at">q =</span> <span class="dv">6000</span>, <span class="at">shape =</span> <span class="fl">0.5</span>, <span class="at">scale =</span> <span class="dv">5000</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="beta-distribution" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="beta-distribution"><span class="header-section-number">3.5.5</span> Beta Distribution</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beta Distribution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The random variable <span class="math inline">X</span> with probability density function <span class="math display">
+f\left(x\right)=\frac{\Gamma\left(\alpha+\beta\right)}{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}x^{\alpha-1}\left(1-x\right)^{\beta-1}\quad\text{for}\quad0\leq x\leq1
+</span></p>
+<p>is a beta random variable with parameters <span class="math inline">\alpha&gt;0</span> and <span class="math inline">\beta&gt;0</span>. The mean and variance of <span class="math inline">X</span> are <span class="math display">
+E\left(X\right)=\frac{\alpha}{\alpha+\beta}
+</span></p>
+<p>and <span class="math display">
+V\left(X\right)=\frac{\alpha\beta}{\left(\alpha+\beta\right)^{2}\left(\alpha+\beta+1\right)}
+</span> respectively.</p>
+<div id="fig-Fig3.16" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig3.16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig3.16.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure&nbsp;3.17: Beta probability density functions for selected values of the parameters \alpha and \beta."><img src="./images/Fig3.16.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.16-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.17: Beta probability density functions for selected values of the parameters <span class="math inline">\alpha</span> and <span class="math inline">\beta</span>.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consider the completion time of a large commercial development. The proportion of the maximum allowed time to complete a task is modeled as a beta random variable with <span class="math inline">\alpha=2.5</span> and <span class="math inline">\beta=1</span>. What is the probability that the proportion of the maximum time exceeds 0.7? Calculate the mean and variance of this random variable.</p>
+<p>Suppose <span class="math inline">X</span> denotes the proportion of the maximum time required to complete the task. The probability is</p>
+<p><span class="math display">
+\begin{align*}
+P\left(X&gt;0.7\right)&amp;=\int_{0.7}^{1} \frac{\Gamma\left(\alpha+\beta\right)}{\Gamma\left(\alpha\right)\Gamma\left(\beta\right)}x^{\alpha-1}\left(1-x\right)^{\beta-1}\,dx\\
+&amp; = \int_{0.7}^{1} \frac{\Gamma\left(2.5+1\right)}{\Gamma\left(2.5\right)\Gamma\left(1\right)}x^{2.5-1}\left(1-x\right)^{1-1}\,dx\\
+&amp; = \int_{0.7}^{1} \frac{\Gamma\left(3.5\right)}{\Gamma\left(2.5\right)\Gamma\left(1\right)}x^{1.5}\,dx\\
+&amp; = \frac{2.5(1.5)(0.5)\sqrt{\pi}}{(1.5)(0.5)\sqrt{\pi}} \frac{1}{2.5}  x^{2.5} \bigg|_{0.7}^{1}\\
+P\left(X&gt;0.7\right)&amp;= 1 - 0.7^{2.5} = 0.59
+\end{align*}
+</span></p>
+<p>The mean is</p>
+<p><span class="math display">
+\begin{align*}
+E\left(X\right)&amp;=\frac{\alpha}{\alpha+\beta}\\
+&amp; = \frac{2.5}{2.5+1} = 0.71
+\end{align*}
+</span></p>
+<p>and <span class="math display">
+\begin{align*}
+V\left(X\right)&amp;=\frac{\alpha\beta}{\left(\alpha+\beta\right)^{2}\left(\alpha+\beta+1\right)}\\
+&amp;=\frac{2.51}{\left(2.5+1\right)^{2}\left(2.5+1+1\right)}\\
+&amp; = 0.045
+\end{align*}
+</span></p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">R Output</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">R Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5900366</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7142857</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04535147</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span> <span class="fu">pbeta</span>(<span class="at">q =</span> <span class="fl">0.7</span>, <span class="at">shape1 =</span> <span class="fl">2.5</span>, <span class="at">shape2 =</span> <span class="dv">1</span>, <span class="at">ncp =</span> <span class="dv">0</span>, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>, <span class="at">log.p =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fl">2.5</span><span class="sc">/</span>(<span class="fl">2.5</span> <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>(<span class="fl">2.5</span> <span class="sc">*</span> <span class="dv">1</span>)<span class="sc">/</span>((<span class="fl">2.5</span> <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (<span class="fl">2.5</span> <span class="sc">+</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="probability-plots" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="probability-plots"><span class="header-section-number">3.6</span> Probability Plots</h2>
+<section id="normal-probability-plots" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="normal-probability-plots"><span class="header-section-number">3.6.1</span> Normal Probability Plots</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Normal Probability Plots
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>How do we know if a normal distribution is a reasonable model for data?</li>
+<li>Probability plotting is a graphical method for determining whether sample data conform to a hypothesized distribution based on a subjective visual examination of the data.</li>
+<li>Probability plotting typically uses special graph paper, known as probability paper, that has been designed for the hypothesized distribution. Probability paper is widely available for the normal, lognormal, Weibull, and various chi- square and gamma distributions.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="other-probability-plots" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="other-probability-plots"><span class="header-section-number">3.6.2</span> Other Probability Plots</h3>
+</section>
+</section>
+<section id="discrete-random-variables" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="discrete-random-variables"><span class="header-section-number">3.7</span> Discrete Random Variables</h2>
+<section id="probability-mass-function" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="probability-mass-function"><span class="header-section-number">3.7.1</span> Probability Mass Function</h3>
+</section>
+<section id="cumulative-distribution-function-2" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="cumulative-distribution-function-2"><span class="header-section-number">3.7.2</span> Cumulative Distribution Function</h3>
+</section>
+<section id="mean-and-variance-2" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="mean-and-variance-2"><span class="header-section-number">3.7.3</span> Mean and Variance</h3>
+</section>
+</section>
+<section id="binomial-distribution" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="binomial-distribution"><span class="header-section-number">3.8</span> Binomial Distribution</h2>
+</section>
+<section id="poisson-process" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="poisson-process"><span class="header-section-number">3.9</span> Poisson Process</h2>
+<section id="poisson-distribution" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="poisson-distribution"><span class="header-section-number">3.9.1</span> Poisson Distribution</h3>
+</section>
+<section id="exponential-distribution" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="exponential-distribution"><span class="header-section-number">3.9.2</span> Exponential Distribution</h3>
+</section>
+</section>
+<section id="normal-approximation-to-the-binomial-and-poisson-distributions" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="normal-approximation-to-the-binomial-and-poisson-distributions"><span class="header-section-number">3.10</span> Normal Approximation to the Binomial and Poisson Distributions</h2>
+</section>
+<section id="more-than-one-random-variable-and-independence" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="more-than-one-random-variable-and-independence"><span class="header-section-number">3.11</span> More than One Random Variable and Independence</h2>
+<section id="joint-distributions" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="joint-distributions"><span class="header-section-number">3.11.1</span> Joint Distributions</h3>
+</section>
+<section id="independence" class="level3" data-number="3.11.2">
+<h3 data-number="3.11.2" class="anchored" data-anchor-id="independence"><span class="header-section-number">3.11.2</span> Independence</h3>
+</section>
+</section>
+<section id="functions-of-random-variables" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="functions-of-random-variables"><span class="header-section-number">3.12</span> Functions of Random Variables</h2>
+<section id="linear-functions-of-independent-random-variables" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="linear-functions-of-independent-random-variables"><span class="header-section-number">3.12.1</span> Linear Functions of Independent Random Variables</h3>
+</section>
+<section id="linear-functions-of-random-variables-that-are-not-independent" class="level3" data-number="3.12.2">
+<h3 data-number="3.12.2" class="anchored" data-anchor-id="linear-functions-of-random-variables-that-are-not-independent"><span class="header-section-number">3.12.2</span> Linear Functions of Random Variables That Are Not Independent</h3>
+</section>
+<section id="nonlinear-functions-of-independent-random-variables" class="level3" data-number="3.12.3">
+<h3 data-number="3.12.3" class="anchored" data-anchor-id="nonlinear-functions-of-independent-random-variables"><span class="header-section-number">3.12.3</span> Nonlinear Functions of Independent Random Variables</h3>
+</section>
+</section>
+<section id="random-sample-statistics-and-the-central-limit-theorem" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="random-sample-statistics-and-the-central-limit-theorem"><span class="header-section-number">3.13</span> Random Sample, Statistics, and the Central Limit Theorem</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ch02.html" class="pagination-link" aria-label="Data Summary and Presentation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summary and Presentation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Ch04.html" class="pagination-link" aria-label="Decision Making for a Single Sample">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Decision Making for a Single Sample</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2022, MYaseen208</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MYaseen208">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/MYaseen208">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/muhammad-yaseen-247800b4/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"right","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
