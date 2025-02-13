@@ -1641,139 +1641,6 @@ V\left(X\right)&amp;=\frac{\alpha\beta}{\left(\alpha+\beta\right)^{2}\left(\alph
 <h2 data-number="3.6" class="anchored" data-anchor-id="probability-plots"><span class="header-section-number">3.6</span> Probability Plots</h2>
 <section id="normal-probability-plots" class="level3" data-number="3.6.1">
 <h3 data-number="3.6.1" class="anchored" data-anchor-id="normal-probability-plots"><span class="header-section-number">3.6.1</span> Normal Probability Plots</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Normal Probability Plots
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>How do we know if a normal distribution is a reasonable model for data?</li>
-<li>Probability plotting is a graphical method for determining whether sample data conform to a hypothesized distribution based on a subjective visual examination of the data.</li>
-<li>Probability plotting typically uses special graph paper, known as probability paper, that has been designed for the hypothesized distribution. Probability paper is widely available for the normal, lognormal, Weibull, and various chi-square and gamma distributions.</li>
-<li>A very important application of normal probability plotting is in verification of assumptions when using statistical inference procedures that require the normality assumption.</li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Ten observations on the effective service life in minutes of batteries used in a portable personal computer are as follows: 176, 191, 214, 220, 205, 192, 201, 190, 183, 185. We hypothesize that battery life is adequately modeled by a normal distribution. To use probability plotting to investigate this hypothesis, first arrange the observations in ascending order and calculate their cumulative frequencies <span class="math inline">(j-0.5)/10</span> as shown in the <a href="#tbl-table1" class="quarto-xref">Table&nbsp;<span>3.1</span></a>.</p>
-<div id="fig-Fig3.17" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Fig3.17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.17.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;3.18: Normal probability plot for the battery life."><img src="./images/Fig3.17.webp" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.17-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.18: Normal probability plot for the battery life.
-</figcaption>
-</figure>
-</div>
-<p>The pairs of values <span class="math inline">x_(j)</span> and <span class="math inline">(j - 0.5)/10</span> are now plotted on normal probability paper. This plot is shown in Fig. 3-24. Most normal probability paper plots <span class="math inline">100(j - 0.5)/n</span> on the left vertical scale and <span class="math inline">100[1- (j - 0.5)/n]</span> on the right vertical scale, with the variable value plotted on the horizontal scale. A straight line, chosen subjectively as a “best fit” line, has been drawn through the plotted points. In drawing the straight line, you should be influenced more by the points near the middle of the plot than by the extreme points. A good rule of thumb is to draw the line approximately between the 25th and 75th percentile points. This is how the line in <a href="#fig-Fig3.18" class="quarto-xref">Figure&nbsp;<span>3.19</span></a> was determined. In assessing the systematic deviation of the points from the straight line, imagine a fat pencil lying along the line. If all the points are covered by this imaginary pencil, a normal distribution adequately describes the data. Because the points in <a href="#fig-Fig3.18" class="quarto-xref">Figure&nbsp;<span>3.19</span></a> would pass the fat pencil test, we conclude that the normal distribution is an appropriate model.</p>
-<div id="tbl-table1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3.1: Normal probability plot for the battery life
-</figcaption>
-<div aria-describedby="tbl-table1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;"><span class="math inline">j</span></th>
-<th style="text-align: right;"><span class="math inline">x_(j)</span></th>
-<th style="text-align: right;"><span class="math inline">(j-0.5)/10</span></th>
-<th style="text-align: right;"><span class="math inline">z_j</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">176</td>
-<td style="text-align: right;">0.05</td>
-<td style="text-align: right;">-1.64</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">183</td>
-<td style="text-align: right;">0.15</td>
-<td style="text-align: right;">-1.04</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">185</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">-0.67</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">190</td>
-<td style="text-align: right;">0.35</td>
-<td style="text-align: right;">-0.39</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">191</td>
-<td style="text-align: right;">0.45</td>
-<td style="text-align: right;">-0.13</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">192</td>
-<td style="text-align: right;">0.55</td>
-<td style="text-align: right;">0.13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">201</td>
-<td style="text-align: right;">0.65</td>
-<td style="text-align: right;">0.39</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">205</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">214</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">1.04</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">220</td>
-<td style="text-align: right;">0.95</td>
-<td style="text-align: right;">1.64</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-<div id="fig-Fig3.18" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-Fig3.18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.18.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Figure&nbsp;3.19: Normal probability plot for the battery life."><img src="./images/Fig3.18.webp" class="img-fluid figure-img"></a>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.18-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.19: Normal probability plot for the battery life.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="other-probability-plots" class="level3" data-number="3.6.2">
 <h3 data-number="3.6.2" class="anchored" data-anchor-id="other-probability-plots"><span class="header-section-number">3.6.2</span> Other Probability Plots</h3>
@@ -1843,14 +1710,14 @@ Example
 </div>
 <div class="callout-body-container callout-body">
 <p>There is a chance that a bit transmitted through a digital transmission channel is received in error. Let <span class="math inline">X</span> equal the number of bits in error in the next 4 bits transmitted. The possible values for <span class="math inline">X</span> are {0, 1, 2, 3, 4}. Based on a model for the errors that is presented in the following section, probabilities for these values will be determined. Suppose that the probabilities are <span class="math inline">P(X = 0) = 0.6561</span>, <span class="math inline">P(X = 1) = 0.2916</span>, <span class="math inline">P(X = 2) = 0.0486</span>, <span class="math inline">P(X = 3) = 0.0036</span>, <span class="math inline">P(X = 4) = 0.0001</span>.</p>
-<p>The probability distribution of <span class="math inline">X</span> is specified by the possible values along with the probability of each. A graphical description of the probability distribution of <span class="math inline">X</span> is shown in <a href="#fig-Fig3.19" class="quarto-xref">Figure&nbsp;<span>3.20</span></a>.</p>
+<p>The probability distribution of <span class="math inline">X</span> is specified by the possible values along with the probability of each. A graphical description of the probability distribution of <span class="math inline">X</span> is shown in <a href="#fig-Fig3.19" class="quarto-xref">Figure&nbsp;<span>3.18</span></a>.</p>
 <div id="fig-Fig3.19" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Fig3.19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.19.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;3.20: Probability distribution for X."><img src="./images/Fig3.19.webp" class="img-fluid figure-img"></a>
+<a href="./images/Fig3.19.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Figure&nbsp;3.18: Probability distribution for X."><img src="./images/Fig3.19.webp" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.19-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.20: Probability distribution for <span class="math inline">X</span>.
+Figure&nbsp;3.18: Probability distribution for <span class="math inline">X</span>.
 </figcaption>
 </figure>
 </div>
@@ -1862,7 +1729,7 @@ Figure&nbsp;3.20: Probability distribution for <span class="math inline">X</span
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="Ch03_files/figure-html/Ch03Code12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="Ch03_files/figure-html/Ch03Code12-1.png" class="img-fluid figure-img" width="768"></a></p>
+<p><a href="Ch03_files/figure-html/Ch03Code12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="Ch03_files/figure-html/Ch03Code12-1.png" class="img-fluid figure-img" width="768"></a></p>
 </figure>
 </div>
 </div>
@@ -1932,14 +1799,14 @@ Example
 <p>Even if the random variable can assume only integer values, the cdf is defined at noninteger values. For example, <span class="math display">
 F(1.5) = P(X \le 1.5) = P(X \le 1) = 0.9477
 </span></p>
-<p>The graph of <span class="math inline">F(x)</span> is shown in <a href="#fig-Fig3.20" class="quarto-xref">Figure&nbsp;<span>3.21</span></a>. Note that the graph has discontinuities (jumps) at the discrete values for <span class="math inline">X</span>. It is a piecewise continuous function. The size of the jump at a point <span class="math inline">x</span> equals the probability at <span class="math inline">x</span>. For example, consider <span class="math inline">x = 1</span>. Here <span class="math inline">F(1) = 0.9477</span>, but for <span class="math inline">0 \le x &lt; 1</span>, <span class="math inline">F(x) = 0.6561</span>. The change is <span class="math inline">P(X = 1) = 0.2916</span>.</p>
+<p>The graph of <span class="math inline">F(x)</span> is shown in <a href="#fig-Fig3.20" class="quarto-xref">Figure&nbsp;<span>3.19</span></a>. Note that the graph has discontinuities (jumps) at the discrete values for <span class="math inline">X</span>. It is a piecewise continuous function. The size of the jump at a point <span class="math inline">x</span> equals the probability at <span class="math inline">x</span>. For example, consider <span class="math inline">x = 1</span>. Here <span class="math inline">F(1) = 0.9477</span>, but for <span class="math inline">0 \le x &lt; 1</span>, <span class="math inline">F(x) = 0.6561</span>. The change is <span class="math inline">P(X = 1) = 0.2916</span>.</p>
 <div id="fig-Fig3.20" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Fig3.20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.20.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Figure&nbsp;3.21: Cumulative distribution function for x."><img src="./images/Fig3.20.webp" class="img-fluid figure-img"></a>
+<a href="./images/Fig3.20.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;3.19: Cumulative distribution function for x."><img src="./images/Fig3.20.webp" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.21: Cumulative distribution function for <span class="math inline">x</span>.
+Figure&nbsp;3.19: Cumulative distribution function for <span class="math inline">x</span>.
 </figcaption>
 </figure>
 </div>
@@ -1960,7 +1827,7 @@ Figure&nbsp;3.21: Cumulative distribution function for <span class="math inline"
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="Ch03_files/figure-html/Ch03Code13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="Ch03_files/figure-html/Ch03Code13-1.png" class="img-fluid figure-img" width="768"></a></p>
+<p><a href="Ch03_files/figure-html/Ch03Code13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="Ch03_files/figure-html/Ch03Code13-1.png" class="img-fluid figure-img" width="768"></a></p>
 </figure>
 </div>
 </div>
@@ -2241,7 +2108,7 @@ f\left(x\right)=\binom{n}{x}p^{x}\left(1-p\right)^{n-x}\,\text{for}\,x=0,1,\ldot
 <div id="fig-Fig3.21-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-Fig3.21-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.21.webp" class="lightbox" data-gallery="fig-Fig3.21" title="Figure&nbsp;3.22&nbsp;(a): "><img src="./images/Fig3.21.webp" id="fig-Fig3.21-1" class="img-fluid figure-img" data-ref-parent="fig-Fig3.21"></a>
+<a href="./images/Fig3.21.webp" class="lightbox" data-gallery="fig-Fig3.21" title="Figure&nbsp;3.20&nbsp;(a): "><img src="./images/Fig3.21.webp" id="fig-Fig3.21-1" class="img-fluid figure-img" data-ref-parent="fig-Fig3.21"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Fig3.21-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a)
@@ -2253,7 +2120,7 @@ f\left(x\right)=\binom{n}{x}p^{x}\left(1-p\right)^{n-x}\,\text{for}\,x=0,1,\ldot
 <div id="fig-Fig3.21-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-Fig3.21-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.22.webp" class="lightbox" data-gallery="fig-Fig3.21" title="Figure&nbsp;3.22&nbsp;(b): "><img src="./images/Fig3.22.webp" id="fig-Fig3.21-2" class="img-fluid figure-img" data-ref-parent="fig-Fig3.21"></a>
+<a href="./images/Fig3.22.webp" class="lightbox" data-gallery="fig-Fig3.21" title="Figure&nbsp;3.20&nbsp;(b): "><img src="./images/Fig3.22.webp" id="fig-Fig3.21-2" class="img-fluid figure-img" data-ref-parent="fig-Fig3.21"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Fig3.21-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b)
@@ -2264,7 +2131,7 @@ f\left(x\right)=\binom{n}{x}p^{x}\left(1-p\right)^{n-x}\,\text{for}\,x=0,1,\ldot
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.22: Binomial distribution for selected values of <span class="math inline">n</span> and <span class="math inline">p</span>.
+Figure&nbsp;3.20: Binomial distribution for selected values of <span class="math inline">n</span> and <span class="math inline">p</span>.
 </figcaption>
 </figure>
 </div>
@@ -2370,40 +2237,17 @@ Poisson Process
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Consider e-mail messages that arrive at a mail server on a computer network. This is an example of events (such as message arrivals) that occur randomly in an interval (such as time). The number of events over an interval (such as the number of messages that arrive in 1 hour) is a discrete random variable that is often modeled by a Poisson distribution. The length of the interval between events (such as the time between messages) is often modeled by an exponential distribution. These distributions are related; they provide probabilities for different random variables in the same random experiment. <a href="#fig-Fig3.23" class="quarto-xref">Figure&nbsp;<span>3.23</span></a> provides a graphical summary.</p>
+<p>Consider e-mail messages that arrive at a mail server on a computer network. This is an example of events (such as message arrivals) that occur randomly in an interval (such as time). The number of events over an interval (such as the number of messages that arrive in 1 hour) is a discrete random variable that is often modeled by a Poisson distribution. The length of the interval between events (such as the time between messages) is often modeled by an exponential distribution. These distributions are related; they provide probabilities for different random variables in the same random experiment. <a href="#fig-Fig3.23" class="quarto-xref">Figure&nbsp;<span>3.21</span></a> provides a graphical summary.</p>
 <div id="fig-Fig3.23" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Fig3.23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.23.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-26" title="Figure&nbsp;3.23: In a Poission process, events occur at random in an interval."><img src="./images/Fig3.23.webp" class="img-fluid figure-img"></a>
+<a href="./images/Fig3.23.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-24" title="Figure&nbsp;3.21: In a Poission process, events occur at random in an interval."><img src="./images/Fig3.23.webp" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.23-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.23: In a Poission process, events occur at random in an interval.
+Figure&nbsp;3.21: In a Poission process, events occur at random in an interval.
 </figcaption>
 </figure>
 </div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Example
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Consider the transmission of <span class="math inline">n</span> bits over a digital communication channel. Let the random variable <span class="math inline">X</span> equal the number of bits in error. When the probability that a bit is in error is constant and the transmissions are independent, <span class="math inline">X</span> has a binomial distribution. Let <span class="math inline">p</span> denote the probability that a bit is in error. Then <span class="math inline">E(X ) = pn</span>. Now suppose that the number of bits transmitted increases and the probability of an error decreases exactly enough that <span class="math inline">pn</span> remains equal to a constant—say, <span class="math inline">\lambda</span>. That is, <span class="math inline">n</span> increases and <span class="math inline">p</span> decreases accordingly, such that <span class="math inline">E(X)</span> remains constant. Then</p>
-<p><span class="math display">
-\begin{align*}
-P\left(X=x\right)&amp;={n \choose x}p^{x}\left(1-p\right)^{n-x}\\
-&amp; = \frac{n(n-1)(n-2) \ldots (n-x+1)}{n^{x}x!} (np)^x (1-p)^n(1-p)^{-x}
-\end{align*}
-</span> <span class="math inline">P(X=x)</span> is written as the product of four terms and with some work it can be shown that the four terms converge to <span class="math inline">1/x!</span>, <span class="math inline">\lambda^{x}</span>, <span class="math inline">e^{-\lambda}</span>, and 1, respectively. Therefore,</p>
-<p><span class="math display">
-\lim_{n \to \infty}P(X = x) = \frac{\lambda^{x}\exp\left(-\lambda\right)}{x!} \quad\quad x=0,1,2,\ldots
-</span></p>
-<p>Also, because the number of bits transmitted tends to infinity, the number of errors can equal any non-negative integer. Therefore, the possible values for X are the integers from zero to infinity.</p>
 </div>
 </div>
 <section id="poisson-distribution" class="level3" data-number="3.9.1">
@@ -2455,7 +2299,7 @@ V\left(X\right)=\lambda
 <div id="fig-Fig3.24-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-Fig3.24-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.24.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.24&nbsp;(a): "><img src="./images/Fig3.24.webp" id="fig-Fig3.24-1" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
+<a href="./images/Fig3.24.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.22&nbsp;(a): "><img src="./images/Fig3.24.webp" id="fig-Fig3.24-1" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Fig3.24-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a)
@@ -2467,7 +2311,7 @@ V\left(X\right)=\lambda
 <div id="fig-Fig3.24-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-Fig3.24-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.25.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.24&nbsp;(b): "><img src="./images/Fig3.25.webp" id="fig-Fig3.24-2" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
+<a href="./images/Fig3.25.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.22&nbsp;(b): "><img src="./images/Fig3.25.webp" id="fig-Fig3.24-2" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Fig3.24-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b)
@@ -2479,7 +2323,7 @@ V\left(X\right)=\lambda
 <div id="fig-Fig3.24-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-Fig3.24-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.26.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.24&nbsp;(c): "><img src="./images/Fig3.26.webp" id="fig-Fig3.24-3" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
+<a href="./images/Fig3.26.webp" class="lightbox" data-gallery="fig-Fig3.24" title="Figure&nbsp;3.22&nbsp;(c): "><img src="./images/Fig3.26.webp" id="fig-Fig3.24-3" class="img-fluid figure-img" data-ref-parent="fig-Fig3.24"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-Fig3.24-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (c)
@@ -2490,7 +2334,7 @@ V\left(X\right)=\lambda
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.24-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.24: Poisson distribution for selected values of the parameter <span class="math inline">\lambda</span>.
+Figure&nbsp;3.22: Poisson distribution for selected values of the parameter <span class="math inline">\lambda</span>.
 </figcaption>
 </figure>
 </div>
@@ -2590,10 +2434,10 @@ V\left(X\right)=\frac{1}{\lambda^{2}}
 <div id="fig-Fig3.27" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Fig3.27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.27.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-30" title="Figure&nbsp;3.25: Probability density function of an exponential random variable for selected values of \lambda."><img src="./images/Fig3.27.webp" class="img-fluid figure-img"></a>
+<a href="./images/Fig3.27.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-28" title="Figure&nbsp;3.23: Probability density function of an exponential random variable for selected values of \lambda."><img src="./images/Fig3.27.webp" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.27-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.25: Probability density function of an exponential random variable for selected values of <span class="math inline">\lambda</span>.
+Figure&nbsp;3.23: Probability density function of an exponential random variable for selected values of <span class="math inline">\lambda</span>.
 </figcaption>
 </figure>
 </div>
@@ -2685,10 +2529,10 @@ np&gt;5\quad\text{and}\quad n\left(1-p\right)&gt;5
 <div id="fig-Fig3.28" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Fig3.28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="./images/Fig3.28.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-31" title="Figure&nbsp;3.26: Normal approximation to the binomial distribution."><img src="./images/Fig3.28.webp" class="img-fluid figure-img"></a>
+<a href="./images/Fig3.28.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-29" title="Figure&nbsp;3.24: Normal approximation to the binomial distribution."><img src="./images/Fig3.28.webp" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig3.28-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.26: Normal approximation to the binomial distribution.
+Figure&nbsp;3.24: Normal approximation to the binomial distribution.
 </figcaption>
 </figure>
 </div>
