@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.13">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; The Role of Statistics in Engineering – Stat-4110: Statistical Methods for Process Development and Control</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ch02.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-66ab7fd5e73b7f0a764e0d49b3e29ab1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6538b33ed9f7bbab4d3c1807d9130642.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././images/LogoSMSS.webp" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Stat-4110</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MYaseen208"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/MYaseen208"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/muhammad-yaseen-247800b4/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ch01.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Role of Statistics in Engineering</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Role of Statistics in Engineering</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summary and Presentation</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Random Variables and Probability Distributions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Decision Making for a Single Sample</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Decision Making for Two Samples</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Building Empirical Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ch08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical Process Control</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="4">
+    <h2 id="toc-title">Table of Contents</h2>
+   
+  <ul>
+  <li><a href="#the-engineering-method-and-statistical-thinking" id="toc-the-engineering-method-and-statistical-thinking" class="nav-link active" data-scroll-target="#the-engineering-method-and-statistical-thinking"><span class="header-section-number">1.1</span> The Engineering Method and Statistical Thinking</a>
+  <ul>
+  <li><a href="#probability" id="toc-probability" class="nav-link" data-scroll-target="#probability"><span class="header-section-number">1.1.1</span> Probability</a></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">1.1.2</span> Statistics</a></li>
+  <li><a href="#statistical-reasoning" id="toc-statistical-reasoning" class="nav-link" data-scroll-target="#statistical-reasoning"><span class="header-section-number">1.1.3</span> Statistical Reasoning</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions"><span class="header-section-number">1.1.4</span> Definitions</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">1.1.5</span> Example</a></li>
+  <li><a href="#random-variable" id="toc-random-variable" class="nav-link" data-scroll-target="#random-variable"><span class="header-section-number">1.1.6</span> Random Variable</a></li>
+  <li><a href="#dot-diagram" id="toc-dot-diagram" class="nav-link" data-scroll-target="#dot-diagram"><span class="header-section-number">1.1.7</span> Dot Diagram</a></li>
+  </ul></li>
+  <li><a href="#collecting-engineering-data" id="toc-collecting-engineering-data" class="nav-link" data-scroll-target="#collecting-engineering-data"><span class="header-section-number">1.2</span> Collecting Engineering Data</a>
+  <ul>
+  <li><a href="#retrospective-study" id="toc-retrospective-study" class="nav-link" data-scroll-target="#retrospective-study"><span class="header-section-number">1.2.1</span> Retrospective Study</a></li>
+  <li><a href="#observational-study" id="toc-observational-study" class="nav-link" data-scroll-target="#observational-study"><span class="header-section-number">1.2.2</span> Observational Study</a></li>
+  <li><a href="#designed-experiments" id="toc-designed-experiments" class="nav-link" data-scroll-target="#designed-experiments"><span class="header-section-number">1.2.3</span> Designed Experiments</a></li>
+  <li><a href="#random-samples" id="toc-random-samples" class="nav-link" data-scroll-target="#random-samples"><span class="header-section-number">1.2.4</span> Random Samples</a></li>
+  </ul></li>
+  <li><a href="#observing-processes-over-time" id="toc-observing-processes-over-time" class="nav-link" data-scroll-target="#observing-processes-over-time"><span class="header-section-number">1.3</span> Observing Processes over Time</a></li>
+  <li><a href="#r-software" id="toc-r-software" class="nav-link" data-scroll-target="#r-software"><span class="header-section-number">1.4</span> R Software</a>
+  <ul>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">1.4.1</span> RStudio</a></li>
+  <li><a href="#example-code-minimal" id="toc-example-code-minimal" class="nav-link" data-scroll-target="#example-code-minimal"><span class="header-section-number">1.4.2</span> Example Code (Minimal)</a></li>
+  <li><a href="#an-introduction-to-r" id="toc-an-introduction-to-r" class="nav-link" data-scroll-target="#an-introduction-to-r"><span class="header-section-number">1.4.3</span> An Introduction to R</a></li>
+  <li><a href="#r-short-reference-card" id="toc-r-short-reference-card" class="nav-link" data-scroll-target="#r-short-reference-card"><span class="header-section-number">1.4.4</span> R Short Reference Card</a></li>
+  <li><a href="#new-york-times-article-on-r" id="toc-new-york-times-article-on-r" class="nav-link" data-scroll-target="#new-york-times-article-on-r"><span class="header-section-number">1.4.5</span> 2009 New York Times Article on R</a></li>
+  <li><a href="#nature-article-on-r" id="toc-nature-article-on-r" class="nav-link" data-scroll-target="#nature-article-on-r"><span class="header-section-number">1.4.6</span> 2015 Nature Article on R</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Role of Statistics in Engineering</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="fullwidth">
+<p><a href="./images/Fig1.0.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="./images/Fig1.0.webp" class="img-fluid" style="width:100.0%"></a></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Major Themes of Stat-4110
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Basic Data Analysis:</strong> A discussion on gathering, displaying, and summarizing data</li>
+<li><strong>Probability:</strong> A study of the laws of chance</li>
+<li><strong>Statistical Inference:</strong> The science of drawing statistical conclusions from specific data using a knowledge of probability.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learning Objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After careful study of this chapter, you should be able to do the following:</p>
+<ol type="1">
+<li>Identify the <span style="color:green">role</span> that <span style="color:green">statistics</span> can play in the <span style="color:green">engineering problem-solving process</span>.</li>
+<li>Discuss how <span style="color:green">variability</span> affects data collected and used in <span style="color:green">making decisions</span>.</li>
+<li>Discuss the methods that engineers use to <span style="color:green">collect data</span>.</li>
+<li>Explain the importance of <span style="color:green">random samples</span>.</li>
+<li>Identify the advantages of <span style="color:green">designed experiments</span> in data collection.</li>
+</ol>
+</div>
+</div>
+<section id="the-engineering-method-and-statistical-thinking" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-engineering-method-and-statistical-thinking"><span class="header-section-number">1.1</span> The Engineering Method and Statistical Thinking</h2>
+<ul>
+<li>Engineers solve problems of interest to society by the efficient application of <span style="color:green">scientific principles</span>.</li>
+<li>The <span style="color:green">engineering</span> or <span style="color:green">scientific method</span> is the approach to formulating and solving these problems.</li>
+</ul>
+<div id="fig-Fig1.1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.1.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1.1: The engineering problem-solving method."><img src="./images/Fig1.1.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: The engineering problem-solving method.
+</figcaption>
+</figure>
+</div>
+<section id="probability" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="probability"><span class="header-section-number">1.1.1</span> Probability</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Used to <span style="color:green">quantify likelihood</span> or <span style="color:green">chance</span></li>
+<li>Used to represent <span style="color:green">risk</span> or <span style="color:green">uncertainty</span> in engineering applications</li>
+<li>Can be interpreted as our degree of <span style="color:green">belief</span> or <span style="color:green">relative frequency</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="statistics" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="statistics"><span class="header-section-number">1.1.2</span> Statistics</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Statistics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Deals with the <span style="color:green">collection</span>, <span style="color:green">presentation</span>, <span style="color:green">analysis</span>, and use of <span style="color:green">data</span>:
+<ul>
+<li><span style="color:green">Make decisions</span></li>
+<li><span style="color:green">Solve problems</span></li>
+<li><span style="color:green">Design products and processes</span></li>
+</ul></li>
+<li>Statistical techniques are useful for describing and understanding <span style="color:green">variability</span>.</li>
+<li>By <span style="color:green">variability</span>, we mean successive observations of a system or phenomenon do not produce exactly the same result.</li>
+<li><span style="color:green">Statistics</span> gives us a framework for describing this <span style="color:green">variability</span> and for learning about potential <span style="color:green">sources of variability</span>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="statistical-reasoning" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="statistical-reasoning"><span class="header-section-number">1.1.3</span> Statistical Reasoning</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Statistical Reasoning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Statistics</strong> is the <strong>science</strong> of <strong>uncertainty</strong> &amp; <strong>variability</strong></li>
+<li>Turning <strong>Data</strong> into <strong>Information</strong>
+<ul>
+<li><strong>Data</strong> <span style="color:red">→</span> <strong>Information</strong> <span style="color:red">→</span> <strong>Knowledge</strong> <span style="color:red">→</span> <strong>Wisdom</strong></li>
+</ul></li>
+</ul>
+<div id="fig-BigData1" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-BigData1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/BigData.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;1.2: Big Data"><img src="./images/BigData.webp" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-BigData1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Big Data
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Statistics</strong> is the <strong>Art</strong> and <strong>Science</strong> of <strong>learning</strong> from <strong>Data</strong>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="definitions" class="level3" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1.4</span> Definitions</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definitions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Population</strong>
+<ul>
+<li><strong>Set</strong> of measurements of interest. Characteristics of the population (<strong>parameters</strong>) are typically of interest.</li>
+</ul></li>
+<li><strong>Sample</strong>
+<ul>
+<li><strong>Subset</strong> of measurements of interest. A characteristic of the <strong>sample</strong> (<strong>statistic</strong>) is used to <strong>infer population characteristics</strong> (<strong>parameters</strong>).</li>
+</ul></li>
+<li><strong>Parameter</strong>
+<ul>
+<li>A <strong>characteristic</strong> of the <strong>population</strong>.</li>
+</ul></li>
+<li><strong>Statistic</strong>
+<ul>
+<li>A <strong>characteristic</strong> of the <strong>sample</strong>.</li>
+</ul></li>
+<li><strong>Descriptive Statistics</strong>
+<ul>
+<li><strong>Describing</strong> the important <strong>characteristics</strong> of a set of data.</li>
+</ul></li>
+<li><strong>Inferential Statistics</strong>
+<ul>
+<li>Using <strong>sample data</strong> to make <strong>inferences</strong> (or <strong>generalizations</strong>) about a <strong>population</strong>.</li>
+</ul></li>
+<li><strong>Statistical Inference</strong>
+<ul>
+<li>Making a statement about the population (<strong>parameter</strong>) based on the sample (<strong>statistic</strong>).</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="example" class="level3" data-number="1.1.5">
+<h3 data-number="1.1.5" class="anchored" data-anchor-id="example"><span class="header-section-number">1.1.5</span> Example</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that an engineer is developing a rubber compound for use in O-rings. The O-rings are to be employed as seals in plasma etching tools used in the semiconductor industry, so their resistance to acids and other corrosive substances is an important characteristic. The engineer uses the standard rubber compound to produce eight O-rings in a development laboratory and measures the tensile strength of each specimen after immersion in a nitric acid solution at 30°C for 25 minutes [refer to the American Society for Testing and Materials (ASTM) Standard D 1414 and the associated standards for many interesting aspects of testing rubber O-rings]. The tensile strengths (in psi) of the eight O-rings are 1030, 1035, 1020, 1049, 1028, 1026, 1019, and 1010. As we should have anticipated, not all the O-ring specimens exhibit the same measurement of tensile strength.</p>
+</div>
+</div>
+</section>
+<section id="random-variable" class="level3" data-number="1.1.6">
+<h3 data-number="1.1.6" class="anchored" data-anchor-id="random-variable"><span class="header-section-number">1.1.6</span> Random Variable</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Random Variable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Since tensile strength <span style="color:green">varies</span> or exhibits <span style="color:green">variability</span>, it is a <span style="color:green">random variable</span>.</li>
+<li>A <span style="color:green">random variable</span>, X, can be model by <span class="math display">X = \mu + \epsilon </span> where <span class="math inline">\mu</span> is a constant and <span class="math inline">\epsilon</span> is a random disturbance, or “noise” term.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dot-diagram" class="level3" data-number="1.1.7">
+<h3 data-number="1.1.7" class="anchored" data-anchor-id="dot-diagram"><span class="header-section-number">1.1.7</span> Dot Diagram</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Dot Diagram
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>The <span style="color:green">dot diagram</span> is a very useful plot for displaying a small body of data - say up to about 20 observations.</li>
+<li>This plot allows us to see easily two features of the data; the <span style="color:green">location</span>, or the middle, and the <span style="color:green">scatter</span> or <span style="color:green">variability.</span></li>
+</ul>
+<div id="fig-Fig1.2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.2.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;1.3: Dot diagram of the O-ring tensile strength data for the original rubber compound."><img src="./images/Fig1.2.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Dot diagram of the O-ring tensile strength data for the original rubber compound.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li>The <span style="color:green">dot diagram</span> is also very useful for comparing sets of data.</li>
+</ul>
+<div id="fig-Fig1.3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.3.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;1.4: Dot diagram of O-ring tensile strength data for the original and modified rubber compounds."><img src="./images/Fig1.3.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Dot diagram of O-ring tensile strength data for the original and modified rubber compounds.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="collecting-engineering-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="collecting-engineering-data"><span class="header-section-number">1.2</span> Collecting Engineering Data</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Collecting Engineering Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Three basic methods for collecting data:</p>
+<ul>
+<li>A <span style="color:red">retrospective</span> study using historical data</li>
+<li>An <span style="color:blue">observational</span> study</li>
+<li>A <span style="color:green">designed experiment</span></li>
+</ul>
+</div>
+</div>
+<section id="retrospective-study" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="retrospective-study"><span class="header-section-number">1.2.1</span> Retrospective Study</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Retrospective Study
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>retrospective study</strong> uses either all or a sample of the <strong>historical</strong> process data from some period of time. The objective of this study might be to determine the relationships among the two temperatures and the reflux rate on the acetone concentration in the output product stream. In most such studies, the engineer is interested in using the data to construct a <strong>model</strong> relating the variables of interest.</p>
+</div>
+</div>
+</section>
+<section id="observational-study" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="observational-study"><span class="header-section-number">1.2.2</span> Observational Study</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Observational Study
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An <strong>observational study</strong> simply observes the process of population during a period of routine operation.</p>
+</div>
+</div>
+</section>
+<section id="designed-experiments" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="designed-experiments"><span class="header-section-number">1.2.3</span> Designed Experiments</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Designed Experiments
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The third way that engineering data are collected is with a <strong>designed experiment</strong>. In a designed experiment, the engineer makes deliberate or purposeful changes in controllable variables (called <strong>factors</strong>) of the system, observes the resulting system output, and then makes a decision or an inference about which variables are responsible for the changes that he or she observes in the output performance.</p>
+</div>
+</div>
+</section>
+<section id="random-samples" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="random-samples"><span class="header-section-number">1.2.4</span> Random Samples</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Random Samples
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Almost all statistical analysis is based on the idea of using a <span style="color:green">sample</span> of data that has been selected from some <span style="color:green">population</span>.</li>
+<li>The objective is to use the sample data to make decisions or learn something about the population.</li>
+<li>Only <span style="color:green">random samples</span> are likely to be useful in statistics, as they give us the best chance of obtaining a sample that is representative of the population.</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Simple Random Sample
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A <span style="color:green">simple random sample</span> of size <span class="math inline">n</span> is a sample that has been selected from a population in such a way that each possible sample of size <span class="math inline">n</span> has an equally likely chance of being selected.</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="observing-processes-over-time" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="observing-processes-over-time"><span class="header-section-number">1.3</span> Observing Processes over Time</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Observing Processes over Time
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Whenever data are collected over time it is important to plot the data over time. Phenomena that might affect the system or process often become more visible in a time-oriented plot and the concept of stability can be better judged.</li>
+</ul>
+<div id="fig-Fig1.5" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.5.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;1.5: A dot diagram illustrates variation but does not identify the problem."><img src="./images/Fig1.5.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: A dot diagram illustrates variation but does not identify the problem.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Fig1.6" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.6.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;1.6: A time series plot of acetone concentration provides more information than the dot diagram."><img src="./images/Fig1.6.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: A time series plot of acetone concentration provides more information than the dot diagram.
+</figcaption>
+</figure>
+</div>
+<div id="fig-Fig1.7" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-Fig1.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="./images/Fig1.7.webp" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;1.7: A control chart for the chemical process concentration data."><img src="./images/Fig1.7.webp" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Fig1.7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.7: A control chart for the chemical process concentration data.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-software" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="r-software"><span class="header-section-number">1.4</span> R Software</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>R</code> is a free, open-source programming language and software environment for statistical computing, bioinformatics, visualization and general computing. <code>R</code> provides a wide variety of statistical and graphical techniques, and is highly extensible. The latest version of <code>R</code> can be obtained from <a href="https://cran.r-project.org/bin/" style="font-size: 13pt;">https://cran.r-project.org/bin/</a>.</p>
+</div>
+</div>
+<section id="rstudio" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">1.4.1</span> RStudio</h3>
+<p><code>RStudio</code> is a powerful integrated development environment (IDE) for <code>R</code>, and it can be downloaded from <a href="https://www.rstudio.com/products/rstudio/download/" style="font-size: 13pt;">https://www.rstudio.com/products/rstudio/download/</a>.</p>
+</section>
+<section id="example-code-minimal" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="example-code-minimal"><span class="header-section-number">1.4.2</span> Example Code (Minimal)</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Ch01.R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Ch01.qmd</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span><span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"Statistics and the Scientific Method"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>format<span class="sc">:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  html</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>toc<span class="sc">:</span> true</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>number<span class="sc">-</span>sections<span class="sc">:</span> true</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Introduction</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at">{r}</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">#| echo: true</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">2 + 2</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">5 - 2</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">5 * 2</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="at">6/2 </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="an-introduction-to-r" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="an-introduction-to-r"><span class="header-section-number">1.4.3</span> An Introduction to R</h3>
+<div id="fig-IntroR" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-IntroR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe width="100%" height="600" src="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-IntroR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.8: An Introduction to R
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="r-short-reference-card" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="r-short-reference-card"><span class="header-section-number">1.4.4</span> R Short Reference Card</h3>
+<div id="fig-RefCardR" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-RefCardR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe width="100%" height="600" src="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-RefCardR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.9: R Short Reference Card
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="new-york-times-article-on-r" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="new-york-times-article-on-r"><span class="header-section-number">1.4.5</span> 2009 New York Times Article on R</h3>
+<div id="fig-NYTR" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-NYTR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe width="100%" height="600" src="./images/2009NewYorkTimes.pdf">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-NYTR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.10: 2009 New York Times Article on R
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="nature-article-on-r" class="level3" data-number="1.4.6">
+<h3 data-number="1.4.6" class="anchored" data-anchor-id="nature-article-on-r"><span class="header-section-number">1.4.6</span> 2015 Nature Article on R</h3>
+<div id="fig-NatureArticleR" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-NatureArticleR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe width="100%" height="600" src="./images/2015NatureArticle.pdf">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-NatureArticleR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.11: 2015 Nature Article on R
+</figcaption>
+</figure>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Ch02.html" class="pagination-link" aria-label="Data Summary and Presentation">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Summary and Presentation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2022, MYaseen208</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/MYaseen208">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/MYaseen208">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/muhammad-yaseen-247800b4/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"fade","descPosition":"right","loop":false,"openEffect":"fade","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
